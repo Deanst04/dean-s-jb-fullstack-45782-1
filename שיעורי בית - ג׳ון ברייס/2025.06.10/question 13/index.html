@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let x = Math.abs(+prompt("please enter a number"));
+        let dig = +prompt("please enter a number with one digit");
+        let rep = 0;
+        console.log(x);
+        console.log(dig);
+        console.log(rep);
+        while(x > 0) {
+            if(x%10 == dig){
+                x = (x-(x%10))/10;
+                rep++
+            } else {
+               x = (x-(x%10))/10;
+            }
+            console.log(rep);
+        }
+        if (dig > 9) {
+            document.write(`<h2>your second number cannot be larger then 1 digit, so stop messing around 😒</h2>`);
+        } else if (dig < 0 && dig > -10) {
+            document.write(`<h2>your second number cannot be negative, so stop messing around 😒</h2>`);
+        } else if (dig < -9) {
+            document.write(`really?, a negative number and more than 1 digit?, so creative 😒`)
+        } else if (dig <= 9 && dig > 0) {
+        document.write(`<h2>${dig} is shown in your number ${rep} times 😊</h2>`);
+        }
+    </script>
+</body>
+</html>

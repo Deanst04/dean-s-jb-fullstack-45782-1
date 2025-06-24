@@ -1,0 +1,55 @@
+html {
+    direction: rtl;
+}
+
+
+body {
+    background-image: url(https://redfloorindia.in/demo-new/wp-content/uploads/2018/02/VIVID-WALNUT.jpg);
+    text-align: center;
+}
+
+h1 {
+    color: brown;
+    font-size: 3em;
+}
+
+p {
+    font-size: 20px;
+    font-weight: lighter;
+    font-family: "David", "Narkisim", serif;
+}
+
+table {
+    border: 1px solid black;
+    font-size: 1em;
+}
+
+input[type="text"] {
+    background-color: yellow;
+}
+
+input[type="password"] {
+    background-color: yellow;
+}
+
+input[type="submit"]:active {
+    background-color: lightblue;
+}
+
+form {
+    float: right;
+}
+
+.left {
+    text-align: left;
+}
+
+#img-container {
+  text-align: center;
+  gap: 10px;
+}
+
+img {
+    margin-top: 500px;
+    height: 150px;
+}

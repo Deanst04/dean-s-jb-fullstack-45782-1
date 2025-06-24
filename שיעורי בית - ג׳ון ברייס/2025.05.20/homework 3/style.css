@@ -1,0 +1,77 @@
+body {
+    text-align: center;
+    background-color: aquamarine;
+}
+
+h1, h2 {
+    color:darkorange;
+    direction: rtl;
+}
+
+a {
+    font-size: 2em;
+    transition: ease-in-out 0.5s;
+}
+
+a:hover {
+    font-size: 2.5em;
+    color:crimson;
+}
+
+img {
+    width: 250px;
+    height: 250px;
+}
+
+.pet-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 500px;
+    padding: auto;
+    margin: auto;
+    gap: 10px;
+}
+
+label {
+    color:darkolivegreen;
+    font-size: 1.5em;
+    float: left;
+}
+
+label > input {
+   margin: 10px;
+}
+
+textarea {
+    margin: 10px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-start;
+    gap: 50px;
+}
+
+.link-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 100px;
+}
+
+p {
+    font-size: 1.5em;
+}
+
+.pet-img {
+    width: 500px;
+    height: 500px;
+    margin: 50px;
+}
+
+input {
+    background-color: burlywood;
+}
+
+textarea {
+    background-color: burlywood;
+}

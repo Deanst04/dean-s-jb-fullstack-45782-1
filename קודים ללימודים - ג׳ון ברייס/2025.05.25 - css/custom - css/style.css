@@ -1,0 +1,66 @@
+@font-face {
+    font-family: roboto;
+    src: url("font/Roboto_Mono/RobotoMono-Italic-VariableFont_wght.ttf");
+
+}
+
+h1 {
+    text-align: center;
+    color: darkred;
+    font-family: roboto;
+}
+
+@keyframes myanimation {
+    from {
+        color: blue;
+        transform: scale(2);
+    }
+
+    to {
+        color: red;
+        transform: scale(0.5);
+    }
+}
+
+p {
+    text-align: center;
+    margin-top: 100px;
+    color: yellowgreen;
+}
+
+p:hover {
+    animation: myanimation 3s infinite alternate linear;
+}
+
+@keyframes mylongnimation {
+    0% {
+        color: blue;
+        transform: scale(2);
+    }
+
+    50% {
+        color: yellow;
+        transform: scale(4);
+    }
+
+    100% {
+        color: red;
+        transform: scale(0.5);
+    }
+}
+
+
+h2 {
+    text-align: center;
+}
+
+h2:hover {
+    animation: mylongnimation 3s infinite alternate linear;
+}
+
+@media (max-width: 600px) {
+  h2 {
+    font-size: 100px;
+  }
+}
+

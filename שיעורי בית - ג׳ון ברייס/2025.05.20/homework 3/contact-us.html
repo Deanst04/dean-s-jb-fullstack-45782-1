@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact us</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>חנות החיות המגניבה בארץ!</h1>
+    <hr>
+    <div class="link-container">
+    <span><a href="index.html">דף הבית</a></span>
+    <span><a href="animals.html">חיות</a></span>
+    <span><a href="contact-us.html">צור קשר</a></span>
+    </div>
+    <h2>צרו עימנו קשר</h2>
+    <form action="save.html" method="get">
+        <table>
+            <thead></thead>
+            <tbody><tr>
+            <td>
+            <label for="first-name">first name:
+            <input id="first-name">
+            </label>
+        </td>
+        </tr>
+        <tr>
+            <td><label for="last-name">last name:
+                <input id="last-name">
+            </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <label for="male">gender:
+            <input id="male" name="gender" type="radio">male
+            </label>
+            <label for="female">
+            <input id="female" name="gender" type="radio">female
+            </label>
+            </td>         
+        </tr>
+        <tr>
+            <td>
+                <label for="city">choose your city:</label>
+                <select id="city">
+                <option disabled selected>choose your city</option>
+                <option value="Petah Tikva">Petah Tikva</option>
+                <option value="Tel Aviv">Tel Aviv</option>
+                <option value="Beer Sheva">Beer Sheva</option>
+                <option value="Ramat Gan">Ramat Gan</option>
+            </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="feedback">leave us some feedback</label>
+                <textarea id="feedback" value="feedback" placeholder="please leave us some feedback" maxlength="1000"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>
+        <div class="button-container">
+        <button>send</button>
+        <button type="reset">clear</button>
+        </div>
+        </td>
+        </tr>
+    </tbody>
+        </table>
+        </form>
+
+    <footer>© 2025 כל הזכויות שמורות | דין שטרק</footer>
+</body>
+</html>

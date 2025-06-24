@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //variables
+        // const x = 10;
+        // let x = 10;
+        // document.write("x=" + x + "<br>");
+        // document.writeln("x is: " + typeof x + "<br>");
+        // x = "anna";
+        // document.write("x=" + x + "<br>");
+        // document.writeln("x is: " + typeof x + "<br>");
+
+
+        // let num = +prompt("enter a number");
+        // document.write("num = " + (num+1) + "<br>");
+
+
+        //1> input city and country and prints "hi, you are from *city*, *country*"
+        
+        // const name = prompt("please enter your name")
+        // const city = prompt("enter your city");
+        // const country = prompt("enter your country");
+        // document.write("hey " + name + ", " + "you are from " + city + ", " + country);
+        // if (city == "petah tikva") {
+        //     document.write(" so your zip code must be: 4951703" + " :)");
+        // } else {
+        //     document.write(" and i don't what is your zip code, but i know for sure that you are not from petah tikva :(")
+        // };
+
+        // string template = "document.write(`hi, you are from ${city}, ${country}`);"
+
+        // 2> input the temperature in f and show it in c
+
+        const f = +prompt("please enter the temperature in Fahrenheit");
+        const c = ((f - 32)/1.8);
+        if(c > 50 || c == 0) {
+        document.write(`${f}℉ in celsius is: ${c.toFixed(1)}℃`);
+        } else if (c >= -10) {
+            document.write(`${f}℉ in celsius is: ${c.toFixed(1)}℃,i'm sure it's pretty cold out there`);
+        } else {
+            document.write(`${f}℉ in celsius is: ${c.toFixed(1)}℃, WTF is wrong with you, LOL`);
+        };
+
+    </script>
+</body>
+</html>

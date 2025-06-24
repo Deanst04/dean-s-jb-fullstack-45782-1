@@ -1,0 +1,29 @@
+body {
+   text-align: center;
+   font-family: 'Times New Roman', Times, serif;
+   background-color: aquamarine;
+   font-size: 20px;
+}
+
+h1 {
+    color: goldenrod;
+}
+
+hr {
+    height: 10px;
+    background-color: gold;
+    color: gold;
+}
+
+fieldset {
+    border-color: gold;
+}
+
+.links {
+    text-align: center;
+}
+
+.list-links {
+    display: inline-block;
+    text-align: left;
+}

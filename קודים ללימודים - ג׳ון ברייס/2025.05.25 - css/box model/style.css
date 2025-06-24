@@ -1,0 +1,22 @@
+/* div {
+    text-align: center;
+    in the default state, the height and the width specify the CONTENT AREA width and height 
+    width: 300px;
+    height: 150px;
+    border: 10px dashed blue;
+    overflow: hidden;
+    padding: 30px;
+    margin: 50px;
+} */
+
+div {
+    text-align: center;
+    width: 300px;
+    height: 150px;
+    border: 10px dashed blue;
+    overflow: hidden;
+    padding: 30px;
+    margin: 50px;
+    /* box-sizing: content-box; effect only the content box, without the border and the padding*/
+    box-sizing: border-box;
+}

@@ -1,0 +1,38 @@
+@font-face {
+    font-family: handjet;
+    src: url("fonts/Handjet-VariableFont_ELGR\,ELSH\,wght.ttf");
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+@keyframes spin {
+   
+    from {
+    transform: rotate(0deg);
+   }
+
+   to {
+    transform: rotate(360deg);
+   }
+}
+
+div {
+    display: flex;
+    margin-top: 300px;
+    border: 5px solid black;
+    justify-content: center;
+    width: 300px;
+    padding: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    font-size: xxx-large;
+    background: linear-gradient(45deg, yellow, black, red, purple, blue );
+    font-family: handjet;
+    box-shadow: 10px 10px 5px 2px grey;
+    color: white; 
+    animation: spin 4s infinite linear;
+}

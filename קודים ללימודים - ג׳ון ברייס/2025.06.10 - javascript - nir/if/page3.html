@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const num = +prompt("enter a number");
+        // if (num < 0) {
+        //     document.write("your number is negative 😭");
+        // } else if (num > 0) {
+        //     document.write("your number is positive 😊");
+        // }
+        // else {
+        //   document.write("your number is 0️⃣");  
+        // }
+            
+        // emoji mac - cmd + control + space
+        
+        // 1> input 2 numbers and print the numbers in ascending order
+
+        // const num1 = +prompt("enter the first number")
+        // const num2 = +prompt("enter the second number")
+        // document.write("the smallest number ➡️ the biggest number" + "<br>")
+        // if (num1 > num2) {
+        //     document.write(`${num2} ➡️ ${num1}`);
+        // } else if (num2 > num1) {
+        //     document.write(`${num1} ➡️ ${num2}`);
+        // } else {
+        //     document.write("your numbers are equal 🤦🏻‍♂️");
+        // }
+
+        // 2> input 3 numbers and print the largest
+
+        const num1 = +prompt("enter the first number")
+        const num2 = +prompt("enter the second number") 
+        const num3 = +prompt("enter the third number")
+        if (num1 > num2 && num1 > num3) {
+            document.write(`the first number: ${num1}, is the largest`);
+        } else if (num2 > num1 && num2 > num3) {
+            document.write(`the second number: ${num2}, is the largest`);
+        } else if (num3 > num1 && num3 > num2) {
+            document.write(`the third number: ${num3}, is the largest`);
+        } else if (num2 == num1 && num2 > num3) {
+            document.write(`the first and the second number: ${num2}, are the largest`);
+        } else if (num3 == num2 && num3 > num1) {
+            document.write(`the second and the third number: ${num2}, are the largest`);
+        } else if (num1 == num3 && num1 > num2) {
+            document.write(`the first and the third number: ${num1}, are the largest`);
+        } else {
+            document.write(`all the numbers are equal to ${num1}`);
+        }
+
+    </script>
+</body>
+</html>

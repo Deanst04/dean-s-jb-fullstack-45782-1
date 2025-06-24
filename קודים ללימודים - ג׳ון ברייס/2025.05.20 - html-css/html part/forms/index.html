@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>forms</title>
+    </head>
+    <body>
+        <form>
+            <input placeholder="username">
+            <br>
+
+            <span>username</span>
+            <input>
+
+            <br>
+            <label for="username">username</label>
+            <input id="username">
+
+            <br>
+            <label for="family-name">family name</label>
+            <input id="family-name" type="text">
+
+            <br>
+            <label for="email">email</label>
+            <input id="email" type="email">
+
+            <br>
+            <label for="kids">how many kids</label>
+            <input id="kids" type="number" min="0" step="1">
+
+            <br>
+            <label for="password">password</label>
+            <input id="password" type="password">
+
+            <br>
+            <label for="eye-color">eye color</label>
+            <input id="eye-color" type="color">
+
+            <div>
+            <label for="birth-date">birth day</label>
+            <input id="birth-date" type="date">
+            </div>
+
+            <div>
+            <input id="agree" type="checkbox">
+            <label for="agree">im agree to the terms</label>
+            </div>
+
+            <div>
+            <input id="newsletter" type="checkbox" checked>
+            <label for="newsletter">send me newsletter</label>
+            </div>
+
+            <div>
+            <input id="male" type="radio" name="gender">
+            <label for="male">male</label>
+            </div>
+
+            <div>
+            <input id="female" type="radio" name="gender">
+            <label for="female">female</label>
+            </div>
+
+            <div>
+            <input id="other" type="radio" name="gender">
+            <label for="other">other</label>
+            </div>
+
+            <div>
+            <label for="pic">profile picture</label>
+            <input id="pic" type="file" accept=".png, .jpg">
+            </div>
+
+            <div>
+            <label for="about">about</label>
+            <textarea id="about" placeholder="tell us about yourself"></textarea>
+            </div>
+
+            <div>
+            <label for="country">country</label>
+            <select id="country">
+                <option selected disabled>please select your country</option>
+                <option value="IL">Israel</option>
+                <option value="US">USA</option>
+                <option value="UK">UK</option>
+                <option value="IR">Iran, republic islamic of</option>
+            </select>
+            </div>
+
+            <div>
+            <label for="hobbies">hobbies</label>
+            <select id="hobbies" multiple>
+                <option>cooking</option>
+                <option>swimming</option>
+                <option>shopping</option>
+                <option>reading</option>
+            </select>
+            </div>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    text-align: center;
+}
+
+table {
+    height: 100%;
+}
+
+tr>th:nth-child(3) {
+    width: 50%;
+}
+
+
+tbody tr td {
+    height: 130px;
+}
+
+img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-top: 5%;
+    object-fit: cover;
+}

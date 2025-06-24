@@ -1,0 +1,56 @@
+/* basic hierarchy */
+
+/* h2 {
+color: blue;
+}
+
+h2 {
+    color: red;
+} */
+
+/* example 2 */
+
+/* li > h2 {
+color: blue;
+}
+
+h2 {
+    color: red;
+} */
+
+/* example 3 */
+
+/* #mydiv h2 {
+    font-style: italic;
+}
+
+div > div > div > ul > li > h2 {
+    font-style: normal;
+} */
+
+/* example 4 */
+
+/* #mydiv h2 {
+    font-style: italic;
+}
+
+.myclass h2 {
+    font-style: normal;
+} */
+
+
+/* #container h2 {
+    font-style: normal;
+}
+
+#mydiv h2 {
+    font-style: italic;
+} */
+
+#mydiv h2 {
+    font-style: italic;
+}
+
+div > div > div > ul > li > h2 {
+    font-style: normal !important ;
+}
