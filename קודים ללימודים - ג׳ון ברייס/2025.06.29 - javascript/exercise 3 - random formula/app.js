@@ -4,4 +4,4 @@ const max = +prompt(`please enter a maximum number`)
 
 
 
-console.log(parseInt(random * (max - min + 1) + min));
+console.log(parseInt(random * (max - min + 1)) + min);
