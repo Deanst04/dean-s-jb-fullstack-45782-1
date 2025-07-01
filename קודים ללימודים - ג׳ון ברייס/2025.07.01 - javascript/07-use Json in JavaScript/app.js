@@ -7,7 +7,7 @@ const studentsJSON = `
             "age": 25
         }
     ]
-`
+`;
 
 const students = JSON.parse(studentsJSON);
 
