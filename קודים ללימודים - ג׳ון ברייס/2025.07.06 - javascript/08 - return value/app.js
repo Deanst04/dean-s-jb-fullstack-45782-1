@@ -24,6 +24,20 @@ const randomNum3 = getRandomNumber();
 console.log(randomNum3);
 printMaxNumber(randomNum1, randomNum2);
 
+function getMichaelLastName() {
+    console.log(`before returning`);
+    return `cohen`;
+    console.log(`after returning`);
+    return `uzan`;
+}
 
+console.log(getMichaelLastName()); // most of the times we need to invoke a function
+console.log(getMichaelLastName); // less frequently, we will need the function code
 
+function getMax(a, b) {
+    console.log(a > b ? a : b);
+    return a > b ? a : b;
+}
+
+console.log(getMax(1, 2));
 
