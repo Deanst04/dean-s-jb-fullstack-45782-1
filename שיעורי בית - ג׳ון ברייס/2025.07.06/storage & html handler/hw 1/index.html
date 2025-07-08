@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="app.js"></script>
+</head>
+
+<body>
+    <form id="address-form" onsubmit="addAddress(event)">
+
+        <label for="city">City</label>
+        <input id="city" placeholder="City" required>
+        <br><br>
+
+        <label for="street">Street</label>
+        <input id="street" placeholder="Street" required>
+        <br><br>
+
+        <label for="house-number">House Number</label>
+        <input id="house-number" placeholder="House Number" required type="number" min="1">
+        <br><br>
+
+        <label for="zip-code">Zip Code</label>
+        <input id="zip-code" placeholder="Zip Code"  minlength="5">
+        <br><br>
+
+        <button type="submit" id="save-btn">Save</button>
+        <button type="button" id="load-btn" onclick="loadData()">Load</button>
+
+    </form>
+</body>
+
+</html>
