@@ -1,23 +1,17 @@
-const userMatrix = [
-  [10, 5, 6, 7, 1],
-  [20, 20, 4, 8, 13],
-  [1, 15, 30, 100, 32],
-]
+const array1 = [10, 5, 6, 7, 1];
+const array2 = [20, 20, 4, 8, 13];
+const array3 = [1, 15, 30, 100, 32];
 
-function getMaxNumberOfMatrix(matrix) {
-  let maxNumber = matrix[0][0];
-  for (const array of matrix) {
-    for (const max of array) {
-      if (max > maxNumber) maxNumber = max;
+function getIndexOfMinNumberOfArray(array) {
+  let minNumber = array[0];
+  let minNumberIndex = 0;
+  for (let index = 0; index < array.length; index++) {
+    if (array[index] < minNumber) {
+      minNumber = array[index];
+      minNumberIndex = index;
     }
   }
-  return maxNumber;
-}
-
-function displayMatrix(matrix) {
-  for (const array of matrix) {
-    document.write(`[${array}], <br>`);
-  }
+  return minNumberIndex;
 }
 
 function displaySeparationLine() {
@@ -25,12 +19,20 @@ function displaySeparationLine() {
 }
 
 document.write(
-  `the matrix is: <br>`
-);
-displayMatrix(userMatrix);
-displaySeparationLine();
-document.write(
-  `the max number of the matrix is: ${getMaxNumberOfMatrix(
-    userMatrix
+  `the index of the min number in the array is [${array1}] is: ${getIndexOfMinNumberOfArray(
+    array1
   )}`
 );
+displaySeparationLine();
+document.write(
+  `the index of the min number in the array is [${array2}] is: ${getIndexOfMinNumberOfArray(
+    array2
+  )}`
+);
+displaySeparationLine();
+document.write(
+  `the index of the min number in the array is [${array3}] is: ${getIndexOfMinNumberOfArray(
+    array3
+  )}`
+);
+displaySeparationLine();
