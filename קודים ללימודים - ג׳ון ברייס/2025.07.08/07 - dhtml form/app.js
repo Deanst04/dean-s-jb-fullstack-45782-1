@@ -4,6 +4,8 @@ function addCar(event) {
   const data = collectDataFromForm();
   const newTR = generateTR(data);
   injectTRToDOM(newTR);
+  saveCarsToLocalStorage(data);
+  clearForm();
 }
 
 function collectDataFromForm() {
@@ -36,3 +38,27 @@ function generateTR(data) {
 function injectTRToDOM(newTR) {
   document.getElementById(`car-list`).innerHTML += newTR;
 }
+
+function loadCarsFromStorage() {
+  const carsJSON = localStorage.getItem(`cars`);
+  if (carsJSON) {
+  const cars = JSON.parse(carsJSON);
+  for (const car of cars) {
+      const newTR = generateTR(car);
+      injectTRToDOM(newTR);
+    }
+  }
+}
+
+function saveCarsToLocalStorage(car) {
+  const carsJSON = localStorage.getItem(`cars`) || `[]`;
+  const cars = JSON.parse(carsJSON);
+  cars.push(car);
+  localStorage.setItem(`cars`, JSON.stringify(cars));
+}
+
+function clearForm() {
+  document.getElementById(`car-form`).reset();
+}
+
+loadCarsFromStorage();
