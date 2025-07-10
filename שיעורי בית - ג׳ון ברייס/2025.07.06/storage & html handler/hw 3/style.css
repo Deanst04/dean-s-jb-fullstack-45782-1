@@ -1,0 +1,13 @@
+@font-face {
+  font-family: cool-font;
+  src: url(fonts/Shrikhand-Regular.ttf);
+}
+
+* {
+    font-family: cool-font;
+}
+
+h1, h2 {
+    text-align: center;
+    padding: 50px;
+}
