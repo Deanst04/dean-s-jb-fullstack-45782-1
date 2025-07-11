@@ -1,0 +1,37 @@
+@font-face {
+  font-family: cool-font;
+  src: url(fonts/Bangers-Regular.ttf);
+}
+
+* {
+    font-family: cool-font;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    background-image: url('https://www.shutterstock.com/image-vector/dog-seamless-pattern-paws-bones-600nw-2350264459.jpg');
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center; 
+}
+
+#pets-form button {
+  margin-bottom: 20px;
+}
+
+p {
+    font-size: xx-large;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+  object-fit: fill;
+}
+
+
