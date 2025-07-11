@@ -1,0 +1,30 @@
+@font-face {
+  font-family: cool-font;
+  src: url(fonts/Bangers-Regular.ttf);
+}
+
+* {
+    font-family: cool-font;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    background-image: url('https://i.pinimg.com/736x/d4/19/3d/d4193d3596427ce7646931bf10367fe6.jpg');
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center; 
+}
+
+#color-form button {
+  margin-bottom: 20px;
+}
+
+p {
+    font-size: xx-large;
+}
+

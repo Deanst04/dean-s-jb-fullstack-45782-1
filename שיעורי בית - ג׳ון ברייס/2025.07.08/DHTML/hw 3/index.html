@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+</head>
+
+<body>
+    
+<h1 class="mb-4 mt-4 text-center">HW 3 - COLOR LIST</h1>
+
+<form id="color-form" onsubmit="addColor(event)">
+    <div class="input-group mb-3">
+    <label for="color" class="input-group-text">Enter color</label>
+    <input id="color" minlength="3" maxlength="20" required class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+    <br><br>
+</div>
+
+<div class="col text-center">
+<button class="btn btn-primary btn-lg mb-4 mt-4">Add color</button>
+</div>
+
+</form>
+
+<table class="table table-hover text-center table-bordered">
+        <thead>
+            <tr>
+                <th>Color Name</th>
+                <th>Color</th>
+            </tr>
+        </thead>
+        <tbody id="color-list">
+        </tbody>
+    </table>
+
+<p class="text-center" id="color-number"></p>
+
+</body>
+
+</html>
