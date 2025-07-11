@@ -1,0 +1,29 @@
+@font-face {
+  font-family: handwrite;
+  src: url(fonts/ComicRelief-Regular.ttf);
+}
+
+* {
+    font-family: handwrite;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    background-image: url('https://img.freepik.com/free-vector/hand-drawn-blue-lined-paper-background_23-2151168910.jpg?semt=ais_hybrid&w=740');
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center; 
+}
+
+#ingredients-form button {
+  margin-bottom: 20px;
+}
+
+p {
+    font-size: xx-large;
+}
