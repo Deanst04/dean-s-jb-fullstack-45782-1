@@ -3,10 +3,6 @@
   src: url(fonts/Bangers-Regular.ttf);
 }
 
-* {
-    font-family: cool-font;
-}
-
 html, body {
   height: 100%;
   margin: 0;
@@ -18,14 +14,11 @@ body {
     background-size: cover;
     background-repeat: no-repeat; 
     background-position: center; 
+    font-family: cool-font;
 }
 
 #pets-form button {
   margin-bottom: 20px;
-}
-
-p {
-    font-size: xx-large;
 }
 
 img {
