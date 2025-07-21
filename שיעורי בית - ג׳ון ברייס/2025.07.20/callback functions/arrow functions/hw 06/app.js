@@ -1,8 +1,5 @@
 function nice(paintCallback) {
-	paintCallback(`green`);
+  paintCallback(`green`);
 }
 
-
-nice(function (color) {
-    document.body.style.backgroundColor = color;
-});
+nice(color => document.body.style.backgroundColor = color);

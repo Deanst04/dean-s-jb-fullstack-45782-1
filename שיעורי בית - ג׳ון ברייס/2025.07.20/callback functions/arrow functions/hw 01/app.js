@@ -2,4 +2,4 @@ function displayFunc(callback) {
     callback();
 }
 
-displayFunc(function() {document.write(`Dean Stark`)});
+displayFunc(() => document.write(`Dean Stark`));

@@ -3,4 +3,4 @@ function nice(callback) {
 }
 
 
-nice(function (num) {document.write(num)});
+nice(num => document.write(num));

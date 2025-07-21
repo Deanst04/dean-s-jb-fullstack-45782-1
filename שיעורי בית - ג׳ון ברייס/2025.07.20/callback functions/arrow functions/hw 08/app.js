@@ -1,3 +1,3 @@
-setInterval(function () {
+setInterval(() =>
     document.getElementById("display-random-number").innerHTML = `${parseInt(Math.random() * (100)) + 1}`
-}, 1 * 1000);
+, 1 * 1000);

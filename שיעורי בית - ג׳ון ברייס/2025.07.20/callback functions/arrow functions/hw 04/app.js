@@ -3,7 +3,7 @@ function amazing(callback) {
 	document.write(`Num: ${num}`);
 }
 
-amazing(function (a, b, c, d, e) {
+amazing((a, b, c, d, e) => {
     const numbers = [a, b, c, d, e];
     return numbers[(parseInt(Math.random() * (numbers.length)))]
 });

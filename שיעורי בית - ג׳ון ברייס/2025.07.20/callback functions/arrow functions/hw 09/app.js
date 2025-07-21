@@ -11,6 +11,6 @@ const colors = [
   "navy",
 ];
 
-setInterval(function () {
+setInterval(() =>
   document.body.style.backgroundColor = colors[parseInt(Math.random() * colors.length)]
-}, 1 * 1000);
+, 1 * 1000);
