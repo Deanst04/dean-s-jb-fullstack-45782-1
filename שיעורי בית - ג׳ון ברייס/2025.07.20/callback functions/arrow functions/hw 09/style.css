@@ -1,0 +1,16 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    animation: change-font-size 3s infinite alternate ease-in-out;
+}
+
+@keyframes change-font-size {
+    from {font-size: 25px;}
+    to {font-size: 100px;}
+}
