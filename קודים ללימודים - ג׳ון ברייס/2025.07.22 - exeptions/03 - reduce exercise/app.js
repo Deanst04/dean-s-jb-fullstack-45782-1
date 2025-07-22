@@ -247,7 +247,7 @@ console.log(max);
 // reducing the hof way
 
 const maxValue = users.reduce((acc, user) => +user.address.geo.lat > acc ? +user.address.geo.lat : acc, 0)
-const maxValue2 = users.reduce((acc, { address: { geo : { lat } } }) => +lat > acc ? +lat : acc , 0);
+const maxValue2 = users.reduce((acc, { address: { geo : { lat }}}) => +lat > acc ? +lat : acc , 0);
 console.log(maxValue);
 console.log(maxValue2);
 
