@@ -95,5 +95,6 @@ const loopStudents = students => {
 loopStudents(students);
 
 // the HOF way of loop:
-console.log(students.forEach((student, i) => console.log(student)));
+students.forEach((student, i) => console.log(student));
+students.forEach(console.log); // return object, index, the array
 
