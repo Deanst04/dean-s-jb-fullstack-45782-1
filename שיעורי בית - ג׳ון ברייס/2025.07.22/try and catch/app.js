@@ -2,8 +2,7 @@
 
 (() => {
   const getAverage = (arr) => {
-    if (arr === undefined || arr === null)
-      throw new Error("the array cannot be undefined or null");
+    if (arr === undefined || arr === null) throw new Error("the array cannot be undefined or null");
     if (!Array.isArray(arr)) throw new Error("the input must be an array");
     if (arr.length === 0) throw new Error("the array must contain any value");
 
