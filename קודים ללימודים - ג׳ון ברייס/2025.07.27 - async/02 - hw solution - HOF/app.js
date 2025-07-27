@@ -2137,4 +2137,30 @@
         }, [])
     )
     console.log(`<==========================>`)
+
+    console.log(`average weight`)
+    console.log(
+        users.reduce((acc, { weight, address: {coordinates : {lat}}}) => {
+            const hemisphere = acc.find(({id}) => id === (lat >= 0 ? `north` : `south`))
+            hemisphere.sum += weight
+            hemisphere.count++
+            return acc
+        }, [
+            {
+                id: `north`,
+                sum: 0,
+                count: 0,
+            },
+            {
+                id: `south`,
+                sum: 0,
+                count: 0,
+            }
+        ])
+        .map(({id, sum, count}) => ({
+            id,
+            average: (sum / count).toFixed(2),
+        }))
+    )
+    console.log(`<==========================>`)
 })();
