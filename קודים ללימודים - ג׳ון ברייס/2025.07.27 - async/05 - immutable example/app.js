@@ -2119,22 +2119,24 @@
     console.log(`<==========================>`)
     console.log(
         users.reduce((acc, { address: { state } }) => {
+          const result = [...acc]
             // if we want to modify cumulative we need to CLONE it
-            if (!acc.find(currentState => state === currentState)) acc.push(state);
-            return acc;
+            if (!result.find(currentState => state === currentState)) result.push(state);
+            return result;
         }, [])
     )
 
     console.log(`eye color distubution`)
     console.log(
         users.reduce((acc, {eyeColor}) => {
-            const currentEyeColor = acc.find(({color}) => eyeColor === color)
-            if (!currentEyeColor) acc.push({
+          const result = [...acc]
+            const currentEyeColor = result.find(({color}) => eyeColor === color)
+            if (!currentEyeColor) result.push({
                 color: eyeColor,
                 count: 1,
             })
             else currentEyeColor.count += 1
-            return acc
+            return result
         }, [])
     )
     console.log(`<==========================>`)
@@ -2142,10 +2144,11 @@
     console.log(`average weight`)
     console.log(
         users.reduce((acc, { weight, address: {coordinates : {lat}}}) => {
-            const hemisphere = acc.find(({id}) => id === (lat >= 0 ? `north` : `south`))
+          const result = [...acc]
+            const hemisphere = result.find(({id}) => id === (lat >= 0 ? `north` : `south`))
             hemisphere.sum += weight
             hemisphere.count++
-            return acc
+            return result
         }, [
             {
                 id: `north`,
