@@ -11,7 +11,9 @@
 
     const showUser = () => {
         console.log(`function started`)
-        console.log(user)
+        setTimeout(() => {
+            console.log(user)
+        }, 3000)
         console.log(`function started`)
     }
 
