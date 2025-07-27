@@ -25,15 +25,18 @@
 
     ////////////////////////////
 
-    const getUser = () => {
+    const getUser = (callback) => {
         console.log(`function started`)
-        console.log(`function started`)
-        return user
+        setTimeout(() => {
+            callback(user)
+        }, 3000)
+        console.log(`function finished`)
+        return `lior`
     }
 
     document.getElementById(`get-user`).addEventListener(`click`, () => {
         console.log(`event started`)
-        const user = getUser()
+        const user = getUser(console.log)
         console.log(user)
         console.log(`event ended`)
     })
