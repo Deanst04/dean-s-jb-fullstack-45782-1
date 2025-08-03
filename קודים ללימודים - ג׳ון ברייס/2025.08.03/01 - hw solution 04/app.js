@@ -41,7 +41,12 @@
         
     })
 
-    const users = await fetchUsers()
-    const html = generateUsersHTMl(users)
-    renderUsersHTML(html)
+    try {
+        const users = await fetchUsers()
+        const html = generateUsersHTMl(users)
+        renderUsersHTML(html)
+    } catch (err) {
+        console.log(err)
+    }
+    
 })()
