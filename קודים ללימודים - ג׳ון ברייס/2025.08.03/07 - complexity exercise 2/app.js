@@ -18,6 +18,6 @@
         return cumulative;
       }, {})
     )
-    // .map(([state]) => state)
+    .map(([state]) => state)
   );
 })();
