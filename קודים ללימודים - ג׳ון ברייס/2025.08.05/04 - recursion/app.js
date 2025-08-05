@@ -72,8 +72,8 @@
         return getFibonacci(n - 1) + getFibonacci(n - 2)
     }
 
-    const fibIndex = +prompt('enter fibonnaci index')
-    console.log(`fibonnai in index ${fibIndex} is ${getFibonacci(fibIndex)}`)
+    const fibIndex = +prompt('enter fibonacci index')
+    console.log(`fibonacci in index ${fibIndex} is ${getFibonacci(fibIndex)}`)
 
     /*
     getFibonacci(4)
