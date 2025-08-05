@@ -17,15 +17,16 @@
             else acc[currentBirthDateMonth] = 1
             return acc
         }, {})
-        ).map(([month, count]) => ({month, count}))
+        )
+        .map(([month, count]) => ({month, count}))
         .sort((a, b) => b.count - a.count)
-
-        return monthDistribution.map(({month, count}) => `
+        .map(({month, count}) => `
             <tr>
                 <td>${month}</td>
                 <td>${count}</td>
             </tr>
         `).join(``)
+        return monthDistribution
     }
 
     const renderUsersHTML = html => {
@@ -46,5 +47,5 @@
     // if b - a is positive, it means that b is larger than a
     // the sort function "splits" every duo in the array into one array, for example [1, 2, 3, 4, 5, 6],
     // the sort will "split" the array like this [1, 2, 3], [4, 5, 6], then it split it into: [1], [2, 3], [4], [5, 6] until we got this: [1], [2], [3], [4], [5], [6]
-    // so the sort spiting the array log2n and because the sort is working on n elements thats make the complexity: O(n log2n)
+    // so the sort spiting the array log2n and because the sort is working on n elements thats make the complexity: O(n log2n) which is the total complexity of the code
 })()
