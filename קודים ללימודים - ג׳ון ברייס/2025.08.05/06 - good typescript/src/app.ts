@@ -20,8 +20,9 @@
     console.log(sum(1, 2))
 
     // example 3
-    function multiply(a, b) {
+    function multiply(a: number, b: number): number {
         const result = a * b
+        return result
     }
 
     console.log(multiply(2, 3));
