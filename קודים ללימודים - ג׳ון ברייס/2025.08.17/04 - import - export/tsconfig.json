@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "outDir": "js",
+    "noEmitOnError": true,
+
+    "module": "esnext",
+    "target": "es2017",
+    "lib": ["es2016", "dom"],
+
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+
+    "strict": true,
+    "jsx": "react-jsx",
+    "skipLibCheck": true,
+
+    "moduleResolution": "node10"
+  }
+}
