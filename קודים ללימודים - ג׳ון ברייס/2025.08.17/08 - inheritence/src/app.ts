@@ -1,10 +1,12 @@
 import Cat from "./cat.js";
 import Dog from "./dog.js";
 
-const mitzi = new Cat(4, 5)
+const mitzi = new Cat(4, 8 ,5)
 mitzi.sayMiau()
-console.log(`mitzi weight ${mitzi.weight}kg`)
+mitzi.brestFeed()
+console.log(`mitzi weights ${mitzi.weight}kg`)
 
-const lucky = new Dog(24, `border collie`)
+
+const lucky = new Dog(24, 'Border collie')
 lucky.bark()
-console.log(`lucky weight ${lucky.weight}kg`)
+console.log(`lucky weights ${lucky.weight}kg`)
