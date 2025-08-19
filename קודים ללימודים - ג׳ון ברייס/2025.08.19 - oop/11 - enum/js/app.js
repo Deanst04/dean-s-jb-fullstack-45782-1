@@ -1,21 +1,21 @@
 var Countries;
 (function (Countries) {
-    Countries["israel"] = "israel";
-    Countries["usa"] = "usa";
-    Countries["portugal"] = "portugal";
+    Countries["Israel"] = "Israel";
+    Countries["USA"] = "USA";
+    Countries["Portugal"] = "Portugal";
 })(Countries || (Countries = {}));
 const ido = {
-    name: `ido`,
-    age: 22,
-    eyeColor: `black`,
-    country: Countries.israel
+    name: 'ido',
+    age: 22.234,
+    eyeColor: 'black',
+    country: Countries.Israel
 };
 const dean = {
-    name: `dean`,
-    age: 21,
-    eyeColor: `brown`,
-    country: Countries.portugal
+    name: 'dean',
+    age: 23,
+    eyeColor: 'brown',
+    country: Countries.Portugal
 };
 console.log(dean);
-// document.getElementById(`countries`).innerHTML = 
+// document.getElementById('countries').innerHTML = 
 console.log(Object.keys(Countries));

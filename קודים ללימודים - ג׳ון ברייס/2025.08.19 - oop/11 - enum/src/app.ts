@@ -1,32 +1,35 @@
 enum Countries {
-    israel = `israel`,
-    usa = `usa`,
-    portugal = `portugal`
+    Israel = 'Israel',
+    USA = 'USA',
+    Portugal = 'Portugal'
 }
 
 interface Person {
     name: string,
     age: number,
-    eyeColor: string
+    eyeColor: string,
     country: Countries
 }
 
 const ido: Person = {
-    name: `ido`,
-    age: 22,
-    eyeColor: `black`,
-    country: Countries.israel
+    name: 'ido',
+    age: 22.234,
+    eyeColor: 'black',
+    country: Countries.Israel
 }
 
 const dean: Person = {
-    name: `dean`,
-    age: 21,
-    eyeColor: `brown`,
-    country: Countries.portugal
+    name: 'dean',
+    age: 23,
+    eyeColor: 'brown',
+    country: Countries.Portugal
 }
 
 console.log(dean)
 
-// document.getElementById(`countries`).innerHTML = 
+// document.getElementById('countries').innerHTML = 
 
 console.log(Object.keys(Countries))
+
+
+
