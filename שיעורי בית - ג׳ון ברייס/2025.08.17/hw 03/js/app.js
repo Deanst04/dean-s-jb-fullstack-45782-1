@@ -1,0 +1,12 @@
+import Flashlight from "./flashlight.js";
+const flashlight1 = new Flashlight(`black`, 10, `high`, 3);
+flashlight1.turnOn();
+flashlight1.turnOff();
+flashlight1.changeBatteries(2);
+flashlight1.getFlashlightDetails();
+console.log(`<---------------------->`);
+const flashlight2 = new Flashlight(`blue`, 20, `ultra bright`, 4);
+flashlight2.turnOn();
+flashlight2.turnOff();
+flashlight2.changeBatteries(4);
+flashlight2.getFlashlightDetails();

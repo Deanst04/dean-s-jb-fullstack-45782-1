@@ -1,0 +1,15 @@
+import Book from "./book.js";
+
+const book1 = new Book(`star wars`, `george lucas`, `Ed Artzi`,50)
+book1.getBookDetails()
+console.log(`price + vat: ${book1.getBookPriceAndVat()}`)
+
+const book2 = new Book(`harry potter`, `jk rolling`, `Random Publisher`,75)
+book2.getBookDetails()
+console.log(`price + vat: ${book2.getBookPriceAndVat()}`)
+
+
+const book3 = new Book(`jurassic park`, `steven spielberg`, `Random Publisher2`, 100)
+book3.getBookDetails()
+console.log(`price + vat: ${book3.getBookPriceAndVat()}`)
+
