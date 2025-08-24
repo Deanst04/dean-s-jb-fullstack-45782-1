@@ -3,6 +3,11 @@ import Piano from "./piano.js";
 
 export default class GrandPiano extends Piano implements Tester {
     constructor(model: string, maker: string, color: string, keys: number, public length: number) {
-        
+        super(model, maker, color, keys)
+    }
+
+    display(): void {
+        super.display()
+        console.log(`length of the piano: ${this.length}`)
     }
 }

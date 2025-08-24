@@ -2,28 +2,23 @@ import Guitar from "./guitar.js";
 import Drum from "./drum.js";
 import Piano from "./piano.js";
 import GrandPiano from "./grandPiano.js";
-
 const myGuitar = new Guitar("Stratocaster", "Fender", "Red", 6);
 const myDrum = new Drum("Stage Custom", "Yamaha", "Black", 14);
 const myPiano = new Piano("U1", "Yamaha", "Black", 88);
 const myGrandPiano = new GrandPiano("CFX", "Yamaha", "Black", 88, 274);
-
-console.log(`guitar`)
-myGuitar.display()
-myGuitar.makeSound()
-
-console.log(`drum`)
-myDrum.display()
-myDrum.makeSound()
-
-console.log(`piano`)
-myPiano.display()
-myPiano.makeSound()
-myPiano.test()
-myPiano.tune()
-
-console.log(`grand piano`)
-myGrandPiano.display()
-myGrandPiano.makeSound()
-myGrandPiano.test()
-myGrandPiano.tune()
+console.log(`guitar`);
+myGuitar.display();
+myGuitar.makeSound();
+console.log(`drum`);
+myDrum.display();
+myDrum.makeSound();
+console.log(`piano`);
+myPiano.display();
+myPiano.makeSound();
+myPiano.test();
+myPiano.tune();
+console.log(`grand piano`);
+myGrandPiano.display();
+myGrandPiano.makeSound();
+myGrandPiano.test();
+myGrandPiano.tune();

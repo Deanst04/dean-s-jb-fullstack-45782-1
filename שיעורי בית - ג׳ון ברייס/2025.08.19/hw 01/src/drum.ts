@@ -1,6 +1,6 @@
 import Instruments from "./instrument.js";
 
-export class Drum extends Instruments {
+export default class Drum extends Instruments {
     
     constructor(model: string, maker: string, color: string, public diameter: number) {
         super(model, maker, color)
