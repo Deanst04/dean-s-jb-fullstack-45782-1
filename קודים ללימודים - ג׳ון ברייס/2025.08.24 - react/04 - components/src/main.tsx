@@ -1,11 +1,11 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import Oren from './App.tsx'
+import App from './components/app/App'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <p>hello world from main</p>
-    <Oren />
-  </StrictMode>,
+    <App />
+  </StrictMode>
 )
