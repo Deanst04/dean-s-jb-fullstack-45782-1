@@ -1,27 +1,36 @@
+import { useEffect, useState } from 'react'
 import './Demo.css'
-import singerPic from '../../assets/yahli-sobol.png'
-import type { ChangeEvent } from 'react'
 
 export default function Demo() {
 
-    function sayHi() {
-        alert(`hi`)
+    const [animals, setAnimals] = useState<string[]>([])
+    const [isDogs, setIsDog] = useState<boolean>(true)
+
+    function getDogs() {
+        return [`Ray`, `Jimmie`]
     }
 
-    function selectionChanged(event: ChangeEvent<HTMLInputElement>) {
-        alert(`selection changed   ` + event.target.value)
+    function getCats() {
+        return [`Lichi`, `Mitzi`]
+    }
+
+    useEffect(() => {
+        setAnimals(isDogs ? getDogs() : getCats())
+    }, [isDogs])
+
+    function selectChanged() {
+        setIsDog(!isDogs)
     }
 
     return (
         <div className='Demo'>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi7fJAXk7MSuNSX--ju6rYrc5CDwINt1mN02Zg9Uf63NLB4yjpZVGR5DSTcS-cttUYqV2p74u6GAfdKAkrd6KP-Md3V4LqvkN2RqSEybKttg" />
-            <img src={singerPic} />
-            <button onClick={sayHi}>say hi</button>
-            <select onChange={selectionChanged}>
-                <option value="usd">USD</option>
-                <option value="ils">ILS</option>
-                <option value="eur">EUR</option>
+            <select onChange={selectChanged}>
+                <option value="dogs">Dogs</option>
+                <option value="cats">Cats</option>
             </select>
+            <ul>
+                {animals.map((animal, index) => <li key={index}>{animal}</li>)}
+            </ul>
         </div>
     )
 }
