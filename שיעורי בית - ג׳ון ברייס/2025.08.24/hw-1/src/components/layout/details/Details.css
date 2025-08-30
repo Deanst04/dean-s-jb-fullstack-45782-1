@@ -1,11 +1,25 @@
-.Details {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background-color: #fff8dc;
+  padding: 20px;
+  border-radius: 12px;
 }
 
-.Details img {
-    height: 150px;
-    width: 150px;
-    justify-self: center;
+.details h3 {
+  margin: 0;
+}
+
+.details ul {
+  padding-left: 20px;
+  text-align: left;
+}
+
+.details img {
+  width: 250px;
+  height: auto;
+  border: 3px solid green;
+  border-radius: 8px;
 }

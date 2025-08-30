@@ -10,10 +10,10 @@ export default function Layout() {
             <header>
                 <Header />
             </header>
-            <section>
+            <section className='details'>
                 <Details />
             </section>
-            <section>
+            <section className='skills'>
                 <Skills />
             </section>
         </div>
