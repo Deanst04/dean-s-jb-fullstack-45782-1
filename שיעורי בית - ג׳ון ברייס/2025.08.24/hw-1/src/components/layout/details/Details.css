@@ -1,0 +1,11 @@
+.Details {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Details img {
+    height: 150px;
+    width: 150px;
+    justify-self: center;
+}
