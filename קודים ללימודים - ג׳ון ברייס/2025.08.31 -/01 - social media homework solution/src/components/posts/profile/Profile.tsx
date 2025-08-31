@@ -31,7 +31,12 @@ export default function Profile() {
     return (
         <div className='Profile'>
             <ul>
-                {profile.map(post => <Post key={post.id} post={post} removePost={removePost}/>)}
+                {profile.map(post => <Post 
+                key={post.id} 
+                post={post} 
+                removePost={removePost} 
+                isEditAllowed={true}
+                />)}
             </ul>
         </div>
     )
