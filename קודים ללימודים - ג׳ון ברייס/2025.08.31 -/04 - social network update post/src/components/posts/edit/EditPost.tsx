@@ -19,7 +19,7 @@ export default function EditPost() {
             const { title, body } = post
             const draft = { title, body }
             reset(draft)
-
+            
         })()
     }, [])
 
