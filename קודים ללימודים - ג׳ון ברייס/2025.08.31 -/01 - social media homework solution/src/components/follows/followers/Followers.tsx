@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import followersService from '../../../services/followers'
 import './Followers.css'
 import type User from '../../../models/user'
+import Follow from '../follow/Follow'
 
 export default function Followers() {
     const [followers, setFollowers] = useState<User[]>([])
@@ -15,7 +16,7 @@ export default function Followers() {
     return (
         <div className='Followers'>
             <ul>
-                {followers.map(({id, name}) => <li key={id}>{name}</li>)}
+                {followers.map(follower => <Follow key={follower.id}  user={follower}/>)}
             </ul>
         </div>
     )
