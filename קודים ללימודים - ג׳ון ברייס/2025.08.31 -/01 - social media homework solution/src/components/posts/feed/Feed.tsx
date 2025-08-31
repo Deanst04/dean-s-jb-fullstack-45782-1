@@ -15,7 +15,7 @@ export default function Feed() {
     }, [])
 
     function removeMe(id: string): void {
-
+        console.log(id)
     }
 
     return (
