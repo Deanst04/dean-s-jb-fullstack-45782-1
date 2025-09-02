@@ -8,6 +8,7 @@ interface NewCommentProps {
     postId: string
     newComment(comment: PostComment): void
 }
+
 export default function NewComment(props: NewCommentProps) {
 
     const { postId, newComment } = props
