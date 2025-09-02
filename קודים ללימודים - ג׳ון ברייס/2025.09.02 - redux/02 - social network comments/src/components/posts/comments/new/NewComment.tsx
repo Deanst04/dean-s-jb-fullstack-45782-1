@@ -1,3 +1,4 @@
+// @ts-ignore
 import { useForm } from 'react-hook-form'
 import type PostCommentDraft from '../../../../models/post-comment-draft'
 import './NewComment.css'
