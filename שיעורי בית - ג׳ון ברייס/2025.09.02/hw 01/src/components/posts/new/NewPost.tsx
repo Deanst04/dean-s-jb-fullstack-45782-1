@@ -3,6 +3,8 @@ import type PostDraft from '../../../models/post-draft'
 import './NewPost.css'
 import profileService from '../../../services/profile'
 import type Post from '../../../models/post'
+import { useState } from 'react'
+import LoadingButton from '../../common/loading-button/LoadingButton'
 
 interface NewPostProps {
     renderNewPost(post: Post): void
@@ -13,13 +15,19 @@ export default function NewPost(props: NewPostProps) {
 
     const { register, handleSubmit, reset, formState } = useForm<PostDraft>()
 
+    const [isAddingPost, setIsAddingPost] = useState<boolean>(false)
+
     async function submit(draft: PostDraft) {
+        setIsAddingPost(true)
         try {
             const post = await profileService.newPost(draft)
             reset()
             renderNewPost(post)
+            alert('Your post has been Uploaded')
         } catch (e) {
             alert(e)
+        } finally {
+            setIsAddingPost(false)
         }
     }
 
@@ -48,7 +56,13 @@ export default function NewPost(props: NewPostProps) {
                     }
                 })}></textarea>
                 <div className='formError'>{formState.errors.body?.message}</div>
-                <button>Add Post</button>
+                {/* <button>Add Post</button> */}
+                <LoadingButton
+                    cfa='Add Post'
+                    message='Adding Post...'
+                    isLoading={isAddingPost}
+                    onClick={handleSubmit(submit)}
+                />
                 </form>
         </div>
     )

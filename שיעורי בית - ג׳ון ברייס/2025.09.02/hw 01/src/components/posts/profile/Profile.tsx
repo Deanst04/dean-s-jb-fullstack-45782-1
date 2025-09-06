@@ -60,7 +60,10 @@ export default function Profile() {
             />)}
             </>}
             {profile.length === 0 && <>
-                <Spinner />
+                <div className='ProfileLoading'>
+                    <Spinner />
+                    <span>Loading Profile Page...</span>
+                </div>
             </>} 
 
         </div>

@@ -45,7 +45,10 @@ export default function Feed() {
                 />)}
             </>}
             {feed.length === 0 && <>
-                <Spinner />
+                <div className='FeedLoading'>
+                    <Spinner />
+                    <span>Loading Feed Page...</span>
+                </div>
             </>}
         </div>
     )

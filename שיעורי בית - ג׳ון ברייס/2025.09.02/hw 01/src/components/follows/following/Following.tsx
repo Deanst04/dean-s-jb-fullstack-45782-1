@@ -29,7 +29,11 @@ export default function Following() {
                 unfollow={unfollow} />)}
             </>}
             {following.length === 0 && <>
-                <Spinner />
+                <div className='FollowingLoading'>
+                    <Spinner />
+                    <span>Loading Followings...</span>
+                </div>
+                
             </>}
         </div>
     )

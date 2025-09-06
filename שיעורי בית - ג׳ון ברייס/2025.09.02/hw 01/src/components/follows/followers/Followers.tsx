@@ -33,7 +33,10 @@ export default function Followers() {
                     />)}
             </>}
             {followers.length === 0 && <>
-                <Spinner />
+                <div className='FollowersLoading'>
+                    <Spinner />
+                    <span>Loading Followers...</span>
+                </div>
             </>}
         </div>
     )
