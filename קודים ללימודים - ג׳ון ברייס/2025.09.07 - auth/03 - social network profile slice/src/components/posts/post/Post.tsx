@@ -3,13 +3,12 @@ import type PostModel from '../../../models/post'
 import profileService from '../../../services/profile'
 import './Post.css'
 import PostComments from '../comments/post-comments/PostComments'
-import type PostComment from '../../../models/post-comment'
+import { useAppDispatcher } from '../../../redux/hooks'
+import { deletePost } from '../../../redux/profile-slice'
 
 interface PostProps {
     post: PostModel,
     isEditAllowed: boolean,
-    removePost(id: string): void
-    newComment(comment: PostComment): void
 }
 
 export default function Post(props: PostProps) {
@@ -24,15 +23,17 @@ export default function Post(props: PostProps) {
         comments 
     } = props.post
 
-    const { removePost, isEditAllowed, newComment } = props
+    const { isEditAllowed } = props
 
     const navigate = useNavigate()
+
+    const dispatch = useAppDispatcher()
 
     async function removeMe() {
         try {
             if (confirm('are you sure?')) {
                 await profileService.remove(id)
-                removePost(id)
+                dispatch(deletePost(id))
             }
         } catch (e) {
             alert(e)
@@ -57,7 +58,6 @@ export default function Post(props: PostProps) {
             <PostComments
                 comments={comments}
                 postId={id}
-                newComment={newComment}
             />
 
 

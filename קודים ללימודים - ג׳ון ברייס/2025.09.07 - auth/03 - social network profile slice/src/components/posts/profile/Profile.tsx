@@ -1,68 +1,45 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import './Profile.css'
 import profileService from '../../../services/profile'
-import type PostModel from '../../../models/post'
 import Post from '../post/Post'
 import NewPost from '../new/NewPost'
-import type PostComment from '../../../models/post-comment'
 import Spinner from '../../common/spinner/Spinner'
 import useTitle from '../../../hooks/useTitle'
+import { useAppDispatcher, useAppSelector } from '../../../redux/hooks'
+import { init } from '../../../redux/profile-slice'
 
 export default function Profile() {
 
-    // useEffect(() => {
-    //     document.title = 'Profile'
-    // }, [])
-
     useTitle('Profile')
 
-    console.log('rendering...')
-
-    const [profile, setProfile] = useState<PostModel[]>([])
+    // const [profile, setProfile] = useState<PostModel[]>([])
+    const profile = useAppSelector(state => state.profileSlice.posts)
+    const dispatch = useAppDispatcher()
 
     useEffect(() => {
         (async () => {
             try {
-                const profileFromServer = await profileService.getProfile()
-                setProfile(profileFromServer)
+                if (profile.length === 0) {
+                    const profileFromServer = await profileService.getProfile()
+                    dispatch(init(profileFromServer))
+                }
             } catch (e) {
                 alert(e)
             }
         })()
-    }, [])
-
-    function removePost(id: string): void {
-        setProfile(profile.filter(post => post.id !== id))
-    }
-
-    function renderNewPost(post: PostModel): void {
-        setProfile([post, ...profile])
-    }
-
-    function newComment(comment: PostComment) {
-        const post = profile.find(post => post.id === comment.postId)
-        post?.comments.push(comment)
-        setProfile([ ...profile ])
-    }
+    }, [dispatch, profile.length])
 
     return (
         <div className='Profile'>
             {profile.length > 0 && <>
-                <NewPost
-                renderNewPost={renderNewPost}
-            />
-            {profile.map(post => <Post
-                key={post.id}
-                post={post}
-                removePost={removePost}
-                isEditAllowed={true}
-                newComment={newComment}
-            />)}
+                <NewPost />
+                {profile.map(post => <Post
+                    key={post.id}
+                    post={post}
+                    isEditAllowed={true}
+                />)}
             </>}
-            {profile.length === 0 && <>
-                <Spinner />
-            </>} 
-
+            {profile.length === 0 && <Spinner />}
         </div>
     )
 }
