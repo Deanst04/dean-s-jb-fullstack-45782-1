@@ -25,11 +25,11 @@ export const profileSlice = createSlice({
             if (idx > -1) state.posts[idx] = action.payload
         },
         newComment: (state, action:PayloadAction<PostComment>) => {
-            const post = state.posts.find(p => p.id === action.payload.id)
+            const post = state.posts.find(p => p.id === action.payload.postId)
             post?.comments.push(action.payload)
         },
         deletePost: (state, action:PayloadAction<string>) => {
-            state.posts.filter(p => p.id !== action.payload)
+            state.posts = state.posts.filter(p => p.id !== action.payload)
         }
     }
 })
