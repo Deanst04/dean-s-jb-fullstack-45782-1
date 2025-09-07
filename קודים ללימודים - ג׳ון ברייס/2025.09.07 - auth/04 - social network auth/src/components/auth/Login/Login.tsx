@@ -1,22 +1,31 @@
 import { useState } from 'react'
+import { useForm } from 'react-hook-form'
 import SpinnerButton from '../../common/spinner-button/SpinnerButton'
 import './Login.css'
-import type Login from '../../../models/login'
-import type Login from '../../../models/login'
+import type LoginModel from '../../../models/login'
+import authService from '../../../services/auth'
 
 export default function Login() {
 
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
 
-    const { register, handleSubmit, reset, formState} = useForm<Login>()
+    const { register, handleSubmit } = useForm<LoginModel>()
 
-    async function submit(login: Login) {
-        
+    async function submit(login: LoginModel) {
+        try {
+            setIsSubmitting(true)
+            const jwt = await authService.login(login)
+            console.log(jwt)
+        } catch (e) {
+            alert(e)
+        } finally {
+            setIsSubmitting(false)
+        }
     }
 
     return (
         <div className='Login'>
-            <form>
+            <form onSubmit={handleSubmit(submit)}>
                 <input placeholder="username" {...register('username')}/>
                 <input placeholder="password" type="password" {...register('password')}/>
                 <SpinnerButton
@@ -29,6 +38,3 @@ export default function Login() {
     )
 }
 
-function useForm<T>(): { register: any; handleSubmit: any; reset: any; formState: any } {
-    throw new Error('Function not implemented.')
-}
