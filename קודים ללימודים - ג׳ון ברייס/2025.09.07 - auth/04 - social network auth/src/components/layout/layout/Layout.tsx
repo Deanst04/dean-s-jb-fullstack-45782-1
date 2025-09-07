@@ -1,15 +1,18 @@
-import { useState } from 'react'
+import { useContext } from 'react'
 import Followers from '../../follows/followers/Followers'
 import Following from '../../follows/following/Following'
 import Footer from '../footer/Footer'
 import Header from '../header/Header'
 import Main from '../main/Main'
 import './Layout.css'
-import Login from '../../auth/Login/Login'
+import Login from '../../auth/login/Login'
+import AuthContext from '../../auth/auth/AuthContext'
 
 export default function Layout() {
 
-    const [isLoggedIn] = useState<boolean>(false)
+    const authContext = useContext(AuthContext)
+
+    const isLoggedIn = !!authContext?.jwt
 
     return (
         <div className='Layout'>
