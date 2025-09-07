@@ -12,7 +12,6 @@ export default function Profile() {
 
     useTitle('Profile')
 
-    // const [profile, setProfile] = useState<PostModel[]>([])
     const profile = useAppSelector(state => state.profileSlice.posts)
     const dispatch = useAppDispatcher()
 
