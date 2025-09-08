@@ -1,11 +1,12 @@
-import { useEffect, useState } from 'react'
-import type PostModel from '../../../models/post'
+import { useEffect } from 'react'
 import './Feed.css'
 import feedService from '../../../services/feed'
 import Post from '../post/Post'
 import type PostComment from '../../../models/post-comment'
 import Spinner from '../../common/spinner/Spinner'
 import useTitle from '../../../hooks/useTitle'
+import { useAppDispatcher, useAppSelector } from '../../../redux/hooks'
+import { init } from '../../../redux/feed-slice'
 
 export default function Feed() {
 
@@ -15,23 +16,17 @@ export default function Feed() {
 
     useTitle('Feed')
 
-    const [feed, setFeed] = useState<PostModel[]>([])
+    const feed = useAppSelector(store => store.feedSlice.posts)
+    const dispatch = useAppDispatcher()
 
     useEffect(() => {
-        feedService.getFeed()
-            .then(setFeed)
-            .catch(alert)
-    }, [])
-
-    function removeMe(id: string): void {
-        console.log(id)
-    }
-
-    function newFeed(comment: PostComment) {
-            const newFeed = feed.find(post => post.id === comment.postId)
-            newFeed?.comments.push(comment)
-            setFeed([ ...feed ])
-    }
+        (async () => {
+            if (feed.length === 0) {
+                const feedFromServer = await feedService.getFeed()
+                dispatch(init(feedFromServer))
+            }
+        })()
+    }, [dispatch, feed.length])
 
     return (
         <div className='Feed'>
@@ -40,8 +35,6 @@ export default function Feed() {
                     key={post.id}
                     post={post}
                     isEditAllowed={false}
-                    removePost={removeMe}
-                    newComment={newFeed}
                 />)}
             </>}
             {feed.length === 0 && <>
