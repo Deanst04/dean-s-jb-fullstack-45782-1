@@ -6,9 +6,11 @@ import { useState } from 'react'
 import SpinnerButton from '../../../common/spinner-button/SpinnerButton'
 import { useAppDispatcher } from '../../../../redux/hooks'
 import { newComment } from '../../../../redux/profile-slice'
+import { newComment as newFeedComment } from '../../../../redux/feed-slice'
 
 interface NewCommentProps {
     postId: string
+    updateFeed?: boolean
 }
 
 export default function NewComment(props: NewCommentProps) {
@@ -27,6 +29,11 @@ export default function NewComment(props: NewCommentProps) {
             const comment = await commentsService.newComment(postId, draft)
             reset()
             dispatch(newComment(comment))
+
+            if (props.updateFeed) {
+                dispatch(newFeedComment(comment))
+            }
+            
         } catch (e) {
             alert(e)
         } finally {

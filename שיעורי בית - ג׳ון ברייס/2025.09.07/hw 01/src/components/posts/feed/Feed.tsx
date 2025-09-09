@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import './Feed.css'
 import feedService from '../../../services/feed'
 import Post from '../post/Post'
-import type PostComment from '../../../models/post-comment'
 import Spinner from '../../common/spinner/Spinner'
 import useTitle from '../../../hooks/useTitle'
 import { useAppDispatcher, useAppSelector } from '../../../redux/hooks'
@@ -35,6 +34,7 @@ export default function Feed() {
                     key={post.id}
                     post={post}
                     isEditAllowed={false}
+                    updateFeed={true}
                 />)}
             </>}
             {feed.length === 0 && <>

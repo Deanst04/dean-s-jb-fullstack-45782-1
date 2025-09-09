@@ -7,15 +7,17 @@ import './PostComments.css'
 interface PostCommentsProps {
     comments: PostCommentModel[]
     postId: string
+    updateFeed?: boolean
 }
 export default function PostComments(props: PostCommentsProps) {
 
-    const { comments, postId } = props
+    const { comments, postId, updateFeed } = props
 
     return (
         <div className='PostComments'>
             <NewComment
                 postId={postId}
+                updateFeed={updateFeed}
             />
             <div>total comments: {comments.length}</div>
             {comments.map(comment => <PostComment

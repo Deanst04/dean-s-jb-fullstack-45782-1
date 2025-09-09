@@ -11,6 +11,7 @@ import { useState } from 'react'
 interface PostProps {
     post: PostModel,
     isEditAllowed: boolean,
+    updateFeed?: boolean
 }
 
 export default function Post(props: PostProps) {
@@ -25,7 +26,7 @@ export default function Post(props: PostProps) {
         comments 
     } = props.post
 
-    const { isEditAllowed } = props
+    const { isEditAllowed, updateFeed } = props
 
     const [isDeleting, setIsDeleting] = useState<boolean>(false)
 
@@ -83,6 +84,7 @@ export default function Post(props: PostProps) {
             <PostComments
                 comments={comments}
                 postId={id}
+                updateFeed={updateFeed}
             />
 
 
