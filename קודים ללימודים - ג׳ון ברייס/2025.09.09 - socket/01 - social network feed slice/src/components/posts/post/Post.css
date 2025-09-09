@@ -16,3 +16,26 @@
 .Post div:nth-child(3) {
     padding: 12px 0px;
 }
+
+.Post .new-post {
+    animation-name: paintYellow;
+    animation-duration: 4s; /* Total animation duration */
+    animation-timing-function: ease-in-out; /* Optional: adjust timing */
+    animation-iteration-count: 1; /* Run once */
+    animation-fill-mode: forwards; /* Keep the final state */
+}
+
+@keyframes paintYellow {
+    0% {
+        background-color: initial; /* Or your starting color */
+    }
+    25% {
+        background-color: yellow; /* Start turning yellow */
+    }
+    75% {
+        background-color: yellow; /* Stay yellow */
+    }
+    100% {
+        background-color: initial; /* Or your ending color */
+    }
+}
