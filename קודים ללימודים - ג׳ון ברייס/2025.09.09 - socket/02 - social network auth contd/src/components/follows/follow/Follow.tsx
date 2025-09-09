@@ -1,16 +1,19 @@
 import { useState } from 'react'
 import type User from '../../../models/user'
-import followingService from '../../../services/following'
 import SpinnerButton from '../../common/spinner-button/SpinnerButton'
 import './Follow.css'
 import { useAppDispatcher, useAppSelector } from '../../../redux/hooks'
 import { follow, unfollow } from '../../../redux/following-slice'
 import { indicateNewContentAvailable } from '../../../redux/feed-slice'
+import useService from '../../../hooks/use-service'
+import FollowingService from '../../../services/auth-aware/FollowingService'
 
 interface FollowProps {
     user: User
 }
 export default function Follow(props: FollowProps) {
+
+    const followingService = useService(FollowingService)
 
     const { user } = props
 

@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react'
 import './Feed.css'
-import feedService from '../../../services/feed'
 import Post from '../post/Post'
 import Spinner from '../../common/spinner/Spinner'
 import useTitle from '../../../hooks/useTitle'
 import { useAppDispatcher, useAppSelector } from '../../../redux/hooks'
 import { init } from '../../../redux/feed-slice'
 import SpinnerButton from '../../common/spinner-button/SpinnerButton'
+import useService from '../../../hooks/use-service'
+import FeedService from '../../../services/auth-aware/feedService'
 
 export default function Feed() {
 
@@ -15,6 +16,8 @@ export default function Feed() {
     // }, [])
 
     useTitle('Feed')
+
+    const feedService = useService(FeedService)
 
     // const [feed, setFeed] = useState<PostModel[]>([])
     const feed = useAppSelector(state => state.feedSlice.posts)
@@ -36,7 +39,7 @@ export default function Feed() {
 
         })()
 
-    }, [dispatch, feed.length])
+    }, [dispatch, feed.length, feedService])
 
     async function refresh() {
         try {

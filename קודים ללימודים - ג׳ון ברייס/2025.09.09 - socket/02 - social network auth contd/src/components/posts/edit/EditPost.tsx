@@ -1,13 +1,14 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import './EditPost.css'
 import { useEffect, useState } from 'react'
-import profileService from '../../../services/profile'
 import { useForm } from 'react-hook-form'
 import type PostDraft from '../../../models/post-draft'
 import SpinnerButton from '../../common/spinner-button/SpinnerButton'
 import Spinner from '../../common/spinner/Spinner'
 import { useAppDispatcher, useAppSelector } from '../../../redux/hooks'
 import { init } from '../../../redux/profile-slice'
+import useService from '../../../hooks/use-service'
+import ProfileService from '../../../services/auth-aware/ProfileService'
 
 export default function EditPost() {
 
@@ -20,6 +21,7 @@ export default function EditPost() {
     const post = useAppSelector(state => state.profileSlice.posts.find(p => p.id === id))
     const dispatch = useAppDispatcher()
 
+    const profileService = useService(ProfileService)
 
     const navigate = useNavigate()
 
@@ -38,7 +40,7 @@ export default function EditPost() {
 
         })()
 
-    }, [dispatch, id, post, reset])
+    }, [dispatch, id, post, profileService, reset])
 
     async function submit(draft: PostDraft) {
         try {

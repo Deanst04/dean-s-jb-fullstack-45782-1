@@ -1,16 +1,19 @@
 import { useEffect } from 'react'
 import './Followers.css'
-import followersService from '../../../services/followers'
 import Follow from '../follow/Follow'
 import Spinner from '../../common/spinner/Spinner'
 import { useAppDispatcher, useAppSelector } from '../../../redux/hooks'
 import { init } from '../../../redux/followers-slice'
+import useService from '../../../hooks/use-service'
+import FollowersService from '../../../services/auth-aware/FollowersService'
 
 export default function Followers() {
     // const [followers, setFollowers] = useState<User[]>([])
     const followers = useAppSelector(store => store.followersSlice.followers)
 
     const dispatch = useAppDispatcher()
+
+    const followersService = useService(FollowersService)
 
     useEffect(() => {
         (async () => {
@@ -22,7 +25,7 @@ export default function Followers() {
                 alert(e)
             }
         })()
-    }, [dispatch])
+    }, [dispatch, followersService])
 
     return (
         <div className='Followers'>
