@@ -41,7 +41,7 @@ export default function SocketDispatcher(props: PropsWithChildren) {
         })
 
         return () => { socket.disconnect() }
-    }, [clientId, dispatch, userId])
+    }, [ dispatch, userId])
 
     const { children } = props
 
