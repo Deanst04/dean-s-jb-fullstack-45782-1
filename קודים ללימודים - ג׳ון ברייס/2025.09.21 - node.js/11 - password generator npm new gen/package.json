@@ -1,0 +1,12 @@
+{
+  "name": "password-generator-npm-deanst04",
+  "version": "1.1.0",
+  "description": "this cute package will generate random passwords for you",
+  "main": "password-generator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["password", "security"],
+  "author": "Dean Stark",
+  "license": "ISC"
+}
