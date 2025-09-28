@@ -1,4 +1,5 @@
 const { createServer } = require('http')
+const { toXML } = require('jstoxml')
 
 const PORT = process.env.PORT || 3000
 
@@ -20,25 +21,17 @@ const users = [
 const products = [
     {
         id: 1,
-        title: 'Keyboard',
+        name: 'Mike'
     },
     {
         id: 2,
-        title: 'Mouse',
+        name: 'Adidos'
     },
     {
         id: 3,
-        title: 'Monitor',
+        name: 'Buma'
     }
 ]
-
-const toProductsXml = (items) => {
-    const productNodes = items
-        .map((product) => `        <product><id>${product.id}</id><title>${product.title}</title></product>`)
-        .join('\n')
-
-    return `<?xml version="1.0" encoding="UTF-8"?>\n<products>\n${productNodes}\n</products>`
-}
 
 const requestHandler = (request, response) => {
     console.log(`url is ${request.url} and method is ${request.method}`)
@@ -68,20 +61,20 @@ const requestHandler = (request, response) => {
                     response.writeHead(404).end('not found')
             }
             break;
-        case '/products':
-            switch (request.method) {
-                case 'GET':
-                    response.setHeader('Content-Type', 'application/xml')
-                    response.end(toProductsXml(products))
-                    break;
-                case 'POST':
-                    console.log('saving product...')
-                    response.writeHead(201).end('product saved')
-                    break;
-                default:
-                    response.writeHead(404).end('not found')
-            }
-            break;
+            case '/products':
+                switch (request.method) {
+                    case 'GET':
+                        response.setHeader('Content-Type', 'application/xml')
+                        response.end(toXML(products))
+                        break;
+                    case 'POST':
+                        console.log('saving product...')
+                        response.writeHead(201).end('product saved')
+                        break;
+                    default:
+                        response.writeHead(404).end('not found')
+                }
+        break;
     }
 }
 
