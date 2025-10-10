@@ -1,0 +1,8 @@
+{
+    "app": {
+        "secret": "APP_SECRET"
+    },
+    "db": {
+        "forceSync": "FORCE_SYNC"
+    }
+}
