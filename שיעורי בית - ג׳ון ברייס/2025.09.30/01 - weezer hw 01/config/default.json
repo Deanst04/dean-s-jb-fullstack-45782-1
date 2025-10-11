@@ -9,7 +9,6 @@
         "port": "3306",
         "username": "root",
         "password": "",
-        "database": "weezer",
-        "forceSync": ""
+        "database": "weezer"
     }
 }

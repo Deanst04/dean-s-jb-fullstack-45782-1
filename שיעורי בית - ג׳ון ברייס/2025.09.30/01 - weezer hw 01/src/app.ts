@@ -26,6 +26,7 @@ app.use(responder)
 
 // synchronize database schema (not data) changes to the database
 // i.e syncs our TypeScript models folder into the actual SQL schema
-sequelize.sync()
+console.log(process.argv[2])
+sequelize.sync({ force: process.argv[2] === 'sync' })
 
 app.listen(port, () => console.log(`${appName} started on port ${port}`))
