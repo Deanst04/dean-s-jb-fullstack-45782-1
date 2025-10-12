@@ -2,13 +2,8 @@ import { NextFunction, Request, Response } from "express";
 import Post from "../../models/Post";
 import User from "../../models/User";
 import Comment from "../../models/Comment";
+import postIncludes from "../common/post-includes";
 
-const postIncludes = {
-    include: [User, {
-        model: Comment,
-        include: [User]
-    }]
-}
 
 export async function getProfile(req: Request, res: Response, next: NextFunction) {
 
