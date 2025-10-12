@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { json } from 'express'
 import logger from './middlewares/error/logger';
 import responder from './middlewares/error/responder';
 import notFound from './middlewares/not-found';
@@ -13,6 +13,10 @@ const appName = config.get<string>('app.name')
 const secret = config.get<string>('app.secret')
 
 console.log(`app secret is ${secret}`)
+
+// post decypher middleware
+app.use(json())
+
 // load routers
 app.use('/profile', profileRouter)
 
