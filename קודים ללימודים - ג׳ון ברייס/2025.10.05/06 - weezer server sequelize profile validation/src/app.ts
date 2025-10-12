@@ -3,6 +3,7 @@ import logger from './middlewares/error/logger';
 import responder from './middlewares/error/responder';
 import notFound from './middlewares/not-found';
 import profileRouter from './routers/profile'
+import feedRouter from './routers/feed'
 import config from 'config'
 import sequelize from './db/sequelize';
 
@@ -19,6 +20,7 @@ app.use(json())
 
 // load routers
 app.use('/profile', profileRouter)
+app.use('/feed', feedRouter)
 
 // not found
 app.use(notFound)
