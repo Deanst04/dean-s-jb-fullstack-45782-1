@@ -38,12 +38,23 @@ export async function getFollowers(req: Request, res: Response, next: NextFuncti
 
 export async function follow(req: Request<{ id: string }>, res: Response, next: NextFunction) {
     try {
+
+        const existing = await Follow.findOne({ where: {
+            followerId: userId,
+            followeeId: req.params.id
+        }})
+        if(existing) throw new Error('follow already existing')
+
         const follow = await Follow.create({
             followerId: userId,
             followeeId: req.params.id
         })
         res.json(follow)
     } catch (e) {
+        if(e.message === 'follow already existing') return next({
+            status: 422,
+            message: e.message
+        })
         next(e)
     }
 }
@@ -62,12 +73,10 @@ export async function unfollow(req: Request<{ id: string }>, res: Response, next
             success: true
         })
     } catch (e) {
-        if(e.message === 'followee not found') {
-            next({
-                status: 422,
-                message: 'followee not found'
-            })
-        }
+        if(e.message === 'followee not found') return next({
+            status: 422,
+            message: 'followee not found'
+        })
         next(e)
     }
 }
