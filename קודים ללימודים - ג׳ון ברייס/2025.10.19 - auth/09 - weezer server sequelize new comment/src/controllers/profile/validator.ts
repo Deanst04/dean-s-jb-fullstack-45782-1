@@ -6,3 +6,7 @@ export const newPostValidator = Joi.object({
 })
 
 export const updatePostValidator = newPostValidator
+
+export const getPostValidator = Joi.object({
+    id: Joi.string().uuid()
+})
