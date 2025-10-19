@@ -1,0 +1,44 @@
+import express, { json } from 'express'
+import logger from './middlewares/error/logger';
+import responder from './middlewares/error/responder';
+import notFound from './middlewares/not-found';
+import profileRouter from './routers/profile'
+import feedRouter from './routers/feed'
+import followsRouter from './routers/follows'
+import commentsRouter from './routers/comments'
+import authRouter from './routers/auth'
+import config from 'config'
+import sequelize from './db/sequelize';
+
+const app = express()
+
+const port = config.get<number>('app.port')
+const appName = config.get<string>('app.name')
+const secret = config.get<string>('app.secret')
+
+console.log(`app secret is ${secret}`)
+
+// post decypher middleware
+app.use(json())
+
+// load routers
+app.use('/profile', profileRouter)
+app.use('/feed', feedRouter)
+app.use('/follows', followsRouter)
+app.use('/comments', commentsRouter)
+app.use('/auth', authRouter)
+
+// not found
+app.use(notFound)
+
+// error middlewares
+app.use(logger)
+app.use(responder)
+
+// synchronize database schema (not data) changes to the database
+// i.e syncs our TypeScript models folder into the actual SQL schema
+sequelize.sync({ force: process.argv[2] === 'sync' ? true : false })
+
+console.log(process.argv[2])
+
+app.listen(port, () => console.log(`${appName} started on port ${port}`))
