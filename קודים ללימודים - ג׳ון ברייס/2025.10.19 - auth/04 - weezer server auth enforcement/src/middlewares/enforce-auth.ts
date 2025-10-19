@@ -3,6 +3,14 @@ import { verify } from "jsonwebtoken";
 import config from 'config'
 import User from "../models/User";
 
+declare global {
+    namespace Express {
+        interface Request {
+            userId: string
+        }
+    }
+}
+
 export default function enforceAuth(req: Request, res: Response, next: NextFunction) {
 
     const jwtSecret = config.get<string>('app.jwtSecret')

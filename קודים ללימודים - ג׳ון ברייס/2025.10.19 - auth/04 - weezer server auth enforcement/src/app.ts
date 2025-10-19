@@ -13,14 +13,6 @@ import enforceAuth from './middlewares/enforce-auth';
 
 const app = express()
 
-declare global {
-    namespace Express {
-        interface Request {
-            userId: string
-        }
-    }
-}
-
 const port = config.get<number>('app.port')
 const appName = config.get<string>('app.name')
 const secret = config.get<string>('app.secret')
