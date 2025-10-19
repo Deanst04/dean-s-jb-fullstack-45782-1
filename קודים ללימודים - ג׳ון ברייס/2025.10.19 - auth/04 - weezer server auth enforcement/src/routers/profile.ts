@@ -7,7 +7,7 @@ import enforceAuth from "../middlewares/enforce-auth";
 
 const router = Router()
 
-router.get('/', enforceAuth, getProfile)
+router.get('/', getProfile)
 router.get('/:id', paramValidation(getPostValidator), getPost)
 router.delete('/:id', deletePost)
 router.post('/', validation(newPostValidator), createPost)

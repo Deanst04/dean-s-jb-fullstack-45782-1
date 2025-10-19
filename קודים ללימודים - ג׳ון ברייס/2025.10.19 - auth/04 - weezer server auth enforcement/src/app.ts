@@ -9,8 +9,17 @@ import followsRouter from './routers/follows'
 import commentsRouter from './routers/comments'
 import config from 'config'
 import sequelize from './db/sequelize';
+import enforceAuth from './middlewares/enforce-auth';
 
 const app = express()
+
+declare global {
+    namespace Express {
+        interface Request {
+            userId: string
+        }
+    }
+}
 
 const port = config.get<number>('app.port')
 const appName = config.get<string>('app.name')
@@ -23,6 +32,7 @@ app.use(json())
 
 // load routers
 app.use('/auth', authRouter)
+app.use(enforceAuth)
 app.use('/profile', profileRouter)
 app.use('/feed', feedRouter)
 app.use('/follows', followsRouter)

@@ -6,11 +6,9 @@ import Comment from "../../models/Comment";
 import postIncludes from "../common/post-includes";
 
 export async function getFeed(req: Request, res: Response, next: NextFunction) {
-    
-    const userId = '1230ae30-dc4f-4752-bd84-092956f5c633'
 
     try {
-        const { following } = await User.findByPk(userId, {
+        const { following } = await User.findByPk(req.userId, {
             include: {
                 model: User,
                 as: 'following',

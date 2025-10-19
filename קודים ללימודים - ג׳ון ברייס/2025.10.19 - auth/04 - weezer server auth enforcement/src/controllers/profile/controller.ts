@@ -46,9 +46,8 @@ export async function deletePost(req: Request<{id: string}>, res: Response, next
 
 export async function createPost(req: Request, res: Response, next: NextFunction) {
 
-    const userId = '1230ae30-dc4f-4752-bd84-092956f5c633'
-
     try {
+        const { userId } = req
         const newPost = await Post.create({...req.body, userId})
         await newPost.reload(postIncludes)
         res.json(newPost)

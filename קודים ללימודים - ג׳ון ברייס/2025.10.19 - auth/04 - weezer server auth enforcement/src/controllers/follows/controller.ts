@@ -2,11 +2,9 @@ import { NextFunction, Request, Response } from "express";
 import User from "../../models/User";
 import Follow from "../../models/Follow";
 
-const userId = '1230ae30-dc4f-4752-bd84-092956f5c633'
-
 export async function getFollowing(req: Request, res: Response, next: NextFunction) {
     try {
-        const { following } = await User.findByPk(userId, {
+        const { following } = await User.findByPk(req.userId, {
             include: [{
                 model: User,
                 as: 'following'
@@ -22,7 +20,7 @@ export async function getFollowing(req: Request, res: Response, next: NextFuncti
 
 export async function getFollowers(req: Request, res: Response, next: NextFunction) {
     try {
-        const { followers } = await User.findByPk(userId, {
+        const { followers } = await User.findByPk(req.userId, {
             include: [{
                 model: User,
                 as: 'followers'
@@ -40,13 +38,13 @@ export async function follow(req: Request<{ id: string }>, res: Response, next: 
     try {
 
         const existing = await Follow.findOne({ where: {
-            followerId: userId,
+            followerId: req.userId,
             followeeId: req.params.id
         }})
         if(existing) throw new Error('follow already existing')
 
         const follow = await Follow.create({
-            followerId: userId,
+            followerId: req.userId,
             followeeId: req.params.id
         })
         res.json(follow)
@@ -63,7 +61,7 @@ export async function unfollow(req: Request<{ id: string }>, res: Response, next
     try {
         const follow = await Follow.findOne({
             where: {
-                followerId: userId,
+                followerId: req.userId,
                 followeeId: req.params.id
             }
         })
