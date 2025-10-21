@@ -33,7 +33,7 @@ export default function Feed() {
             }
         })()
 
-    }, [dispatch, feed.length])
+    }, [dispatch, feed.length, feedService])
 
 
     async function refresh() {
@@ -65,6 +65,7 @@ export default function Feed() {
                     key={post.id}
                     post={post}
                     isEditAllowed={false}
+                    context='feed'
                 />)}
             </>}
 

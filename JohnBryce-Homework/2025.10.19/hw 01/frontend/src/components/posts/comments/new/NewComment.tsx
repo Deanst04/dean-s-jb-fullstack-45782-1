@@ -5,11 +5,13 @@ import { useState } from 'react'
 import SpinnerButton from '../../../common/spinner-button/SpinnerButton'
 import { useAppDispatcher } from '../../../../redux/hooks'
 import { newComment } from '../../../../redux/profile-slice'
+import { newComment as newFeedComment } from '../../../../redux/feed-slice'
 import useService from '../../../../hooks/use-service'
 import CommentsService from '../../../../services/auth-aware/CommentsService'
 
 interface NewCommentProps {
     postId: string
+    context: "profile" | "feed"
 }
 export default function NewComment(props: NewCommentProps) {
 
@@ -27,7 +29,8 @@ export default function NewComment(props: NewCommentProps) {
             setIsSubmitting(true)
             const comment = await commentsService.newComment(postId, draft)
             reset()
-            dispatch(newComment(comment))
+            if (props.context === 'profile') dispatch(newComment(comment))
+            else if (props.context === 'feed') dispatch(newFeedComment(comment))
         } catch (e) {
             alert(e)
         } finally {

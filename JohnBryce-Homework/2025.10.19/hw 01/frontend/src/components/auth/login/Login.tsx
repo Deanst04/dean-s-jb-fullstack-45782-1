@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import type LoginModel from '../../../models/login'
 import authService from '../../../services/auth'
 import AuthContext from '../auth/AuthContext'
+import { Link } from 'react-router-dom'
 
 export default function Login() {
 
@@ -38,6 +39,7 @@ export default function Login() {
                     isSubmitting={isSubmitting}
                 />
             </form>
+            <p>first time here? please <Link to="/signup">sign up</Link></p>
         </div>
     )
 }

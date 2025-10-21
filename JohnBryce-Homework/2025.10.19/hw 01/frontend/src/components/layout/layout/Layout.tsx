@@ -7,6 +7,8 @@ import Main from '../main/Main'
 import './Layout.css'
 import Login from '../../auth/login/Login'
 import AuthContext from '../../auth/auth/AuthContext'
+import { Route, Routes } from 'react-router-dom'
+import Signup from '../../auth/signup/Signup'
 
 export default function Layout() {
 
@@ -35,7 +37,13 @@ export default function Layout() {
                 </footer>
             </>}
 
-            {!isLoggedIn && <Login />}
+            {!isLoggedIn && 
+                <Routes>
+                    <Route path="/login" element={ <Login /> } />
+                    <Route path="/signup" element={ <Signup /> } />
+                    <Route path="*" element={ <Login /> } />
+                </Routes>
+            }
         </div>
     )
 }

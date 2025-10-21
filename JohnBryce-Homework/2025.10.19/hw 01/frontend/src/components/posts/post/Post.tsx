@@ -10,7 +10,8 @@ import ProfileService from '../../../services/auth-aware/ProfileService'
 interface PostProps {
     post: PostModel,
     isEditAllowed: boolean,
-    isNew?: boolean
+    isNew?: boolean,
+    context: "profile" | "feed"
 }
 
 export default function Post(props: PostProps) {
@@ -27,7 +28,7 @@ export default function Post(props: PostProps) {
         comments
     } = props.post
 
-    const { isEditAllowed, isNew } = props
+    const { isEditAllowed, isNew, context } = props
 
     const navigate = useNavigate()
 
@@ -66,6 +67,7 @@ export default function Post(props: PostProps) {
             <PostComments
                 comments={comments}
                 postId={id}
+                context={context}
             />
 
 

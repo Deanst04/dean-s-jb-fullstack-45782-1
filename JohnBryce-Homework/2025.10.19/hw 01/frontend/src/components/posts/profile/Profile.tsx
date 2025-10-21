@@ -30,7 +30,7 @@ export default function Profile() {
                 alert(e)
             }
         })()
-    }, [dispatch, profile.length])
+    }, [dispatch, profile.length, profileService])
 
     useEffect(() => {
         if (newPost) {
@@ -49,11 +49,13 @@ export default function Profile() {
                     post={newPost}
                     isEditAllowed={true}
                     isNew={true}
+                    context='profile'
                 />}
                 {profile.map(post => <Post
                     key={post.id}
                     post={post}
                     isEditAllowed={true}
+                    context='profile'
                 />)}
             </>}
             {profile.length === 0 && <Spinner />}

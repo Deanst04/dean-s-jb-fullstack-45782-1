@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import authService from '../../../services/auth'
 import AuthContext from '../auth/AuthContext'
 import type SignupModel from '../../../models/signup'
+import { Link } from 'react-router-dom'
 
 export default function Signup() {
 
@@ -17,7 +18,7 @@ export default function Signup() {
     async function submit(Signup: SignupModel) {
         try {
             setIsSubmitting(true)
-            const { jwt } = await authService.login(Signup)
+            const { jwt } = await authService.signup(Signup)
             authContext?.newJwt(jwt)
         } catch (e) {
             alert(e)
@@ -39,6 +40,7 @@ export default function Signup() {
                     isSubmitting={isSubmitting}
                 />
             </form>
+            <p>already have an account? please <Link to="/login">login</Link></p>
         </div>
     )
 }
