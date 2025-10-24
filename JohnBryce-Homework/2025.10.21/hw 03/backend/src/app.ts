@@ -2,12 +2,13 @@ import express, { json } from 'express'
 import logger from './middlewares/error/logger';
 import responder from './middlewares/error/responder';
 import notFound from './middlewares/not-found';
+import categoriesRouter from './routers/categories'
+import productsRouter from './routers/products'
 import config from 'config'
 import sequelize from './db/sequelize';
 import cors from 'cors'
 
 const app = express()
-
 
 const port = config.get<number>('app.port')
 const appName = config.get<string>('app.name')
@@ -21,7 +22,8 @@ app.use(cors())
 app.use(json())
 
 // load routers
-
+app.use('/categories', categoriesRouter)
+app.use('/products', productsRouter)
 
 // not found
 app.use(notFound)
