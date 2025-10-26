@@ -12,9 +12,6 @@ const app = express()
 
 const port = config.get<number>('app.port')
 const appName = config.get<string>('app.name')
-const secret = config.get<string>('app.secret')
-
-console.log(`app secret is ${secret}`)
 
 app.use(cors())
 

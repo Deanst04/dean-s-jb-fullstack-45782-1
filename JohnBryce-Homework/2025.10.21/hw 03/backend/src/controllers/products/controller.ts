@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import Product from "../../models/product";
 import Category from "../../models/category";
-import { Model } from "sequelize-typescript";
 
 export async function getProductsByCategory(req: Request<{ categoryId: number }>, res: Response, next: NextFunction) {
     try {
