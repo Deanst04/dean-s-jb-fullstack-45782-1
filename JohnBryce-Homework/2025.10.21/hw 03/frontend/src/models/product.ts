@@ -1,8 +1,6 @@
-export default interface Product {
+import type AddProduct from "./addProductModel";
+
+export default interface Product extends AddProduct {
     id: number,
-    name: string,
-    manufactureDate: Date,
-    expirationDate: Date,
-    categoryId: number,
-    price: number
+    categoryId: number
 }
