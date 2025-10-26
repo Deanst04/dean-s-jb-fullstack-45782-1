@@ -1,6 +1,5 @@
 {
     "db": {
-        "host": "host.docker.internal",
-        "port": 3309
+        "host": "database"
     }
 }
