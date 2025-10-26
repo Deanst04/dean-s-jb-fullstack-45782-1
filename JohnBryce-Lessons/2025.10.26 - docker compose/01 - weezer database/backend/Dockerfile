@@ -21,3 +21,5 @@ RUN rm -rf ./src
 
 # what runs when the image is loaded by docker into a container
 CMD [ "npm", "start" ]
+
+# docker run --name weezer-backend -d -p 3010:3000 -e NODE_ENV=docker deanst/weezer-backend:3.0.0
