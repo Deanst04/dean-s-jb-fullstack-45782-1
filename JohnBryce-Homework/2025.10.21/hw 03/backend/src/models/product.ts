@@ -1,4 +1,4 @@
-import { AllowNull, AutoIncrement, BelongsTo, Column, DataType, ForeignKey, Model, PrimaryKey, Table } from "sequelize-typescript";
+import { AllowNull, BelongsTo, Column, DataType, Default, ForeignKey, Model, PrimaryKey, Table } from "sequelize-typescript";
 import Category from "./category";
 
 @Table({
@@ -6,12 +6,12 @@ import Category from "./category";
 })
 export default class Product extends Model{
     @PrimaryKey
-    @AutoIncrement
-    @Column(DataType.INTEGER)
-    id: number
+    @Default(DataType.UUIDV4)
+    @Column(DataType.UUID)
+    id: string
 
     @AllowNull(false)
-    @Column(DataType.STRING(30))
+    @Column(DataType.STRING)
     name: string
 
     @AllowNull(false)
@@ -24,11 +24,11 @@ export default class Product extends Model{
 
     @ForeignKey(() => Category)
     @AllowNull(false)
-    @Column(DataType.INTEGER)
-    categoryId: number
+    @Column(DataType.UUID)
+    categoryId: string
 
     @AllowNull(false)
-    @Column(DataType.DECIMAL(10, 2))
+    @Column(DataType.FLOAT)
     price: number
 
     @BelongsTo(() => Category, {

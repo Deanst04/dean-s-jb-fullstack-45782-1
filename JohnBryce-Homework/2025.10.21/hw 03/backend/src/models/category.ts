@@ -1,4 +1,4 @@
-import { AllowNull, AutoIncrement, Column, DataType, HasMany, Model, PrimaryKey, Table } from "sequelize-typescript";
+import { AllowNull, Column, DataType, Default, HasMany, Model, PrimaryKey, Table } from "sequelize-typescript";
 import Product from "./product";
 
 @Table({
@@ -6,12 +6,12 @@ import Product from "./product";
 })
 export default class Category extends Model {
     @PrimaryKey
-    @AutoIncrement
-    @Column(DataType.INTEGER)
-    id: number
+    @Default(DataType.UUIDV4)
+    @Column(DataType.UUID)
+    id: string
 
     @AllowNull(false)
-    @Column(DataType.STRING(20))
+    @Column(DataType.STRING)
     name: string
 
     @HasMany(() => Product, {

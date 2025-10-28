@@ -2,15 +2,10 @@ import { NextFunction, Request, Response } from "express";
 import Product from "../../models/product";
 import Category from "../../models/category";
 
-export async function getProductsByCategory(req: Request<{ categoryId: number }>, res: Response, next: NextFunction) {
+export async function getProductsByCategory(req: Request<{ categoryId: string }>, res: Response, next: NextFunction) {
     try {
-        const { categoryId } = req.params
-        const products = await Product.findAll({
-            where: { categoryId },
-            include: [{
-                model: Category,
-                attributes: ["id", "name"]
-            }]
+        const { products } = await Category.findByPk(req.params.categoryId, {
+            include: [Product]
         })
         res.json(products)
     } catch(e) {
@@ -18,22 +13,17 @@ export async function getProductsByCategory(req: Request<{ categoryId: number }>
     }
 }
 
-export async function addProduct(req: Request<{ categoryId: number }>, res: Response, next: NextFunction) {
+export async function addProduct(req: Request, res: Response, next: NextFunction) {
     try {
-        const { categoryId } = req.params
-        const newProduct = await Product.create({...req.body, categoryId})
-        await newProduct.reload({
-            include: [{
-                model: Category
-            }]
-        })
+        const newProduct = await Product.create(req.body)
+        await newProduct.reload({ include: Category })
         res.json(newProduct)
     } catch(e) {
         next(e)
     }
 }
 
-export async function deleteProduct(req: Request<{ productId: number }>, res: Response, next: NextFunction) {
+export async function deleteProduct(req: Request<{ productId: string }>, res: Response, next: NextFunction) {
     try {
         const { productId } = req.params
         const deletedRows = await Product.destroy({ where: { id: productId } })

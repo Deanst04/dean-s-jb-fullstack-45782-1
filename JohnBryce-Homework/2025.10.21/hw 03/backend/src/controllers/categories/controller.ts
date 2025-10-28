@@ -3,10 +3,7 @@ import Category from "../../models/category";
 
 export async function getCategories(req: Request, res: Response, next: NextFunction) {
     try {
-        const categories = await Category.findAll({
-            attributes:["name"],
-            order: [["id", "ASC"]]
-        })
+        const categories = await Category.findAll()
         res.json(categories)
     } catch(e) {
         next(e)

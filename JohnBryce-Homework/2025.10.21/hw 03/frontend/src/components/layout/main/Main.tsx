@@ -1,15 +1,16 @@
-import { useState } from "react"
-import type Category from "../../../models/category"
+import { Navigate, Route, Routes } from "react-router-dom"
+import NotFound from "../not-found/NotFound"
+import List from "../../ products/list/List"
+import NewProduct from "../../ products/new/NewProduct"
 
 export default function Main() {
-
-    const [categories, setCategories] = useState<Category[]>([])
-    const [selectedCategory, setSelectedCategory] = useState<number | null>(null)
-    
-
     return (
-        <div className="Main">
-            main
-        </div>
+        <Routes>
+            {/* <Route path="/" element={<Profile />} /> */}
+            <Route path="/" element={<Navigate to={"/products"} />} />
+            <Route path="/products" element={<List />} />
+            <Route path="/add-product" element={<NewProduct />} />
+            <Route path="*" element={<NotFound />} />
+        </Routes>
     )
 }
