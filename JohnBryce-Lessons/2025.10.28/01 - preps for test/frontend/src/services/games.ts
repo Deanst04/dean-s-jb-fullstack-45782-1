@@ -9,7 +9,7 @@ class GamesService {
     }
 
     async getByMaxPrice(maxPrice: number): Promise<Game[]> {
-        const { data } = await axios.get<Game[]>(`${import.meta.env.VITE_REST_SERVER_URL}/games/by-max-price?=${maxPrice}`)
+        const { data } = await axios.get<Game[]>(`${import.meta.env.VITE_REST_SERVER_URL}/games/by-max-price?maxPrice=${maxPrice}`)
         return data
     }
 
@@ -20,4 +20,5 @@ class GamesService {
 
 }
 
-export default new GamesService()
+const gameService = new GamesService()
+export default gameService
