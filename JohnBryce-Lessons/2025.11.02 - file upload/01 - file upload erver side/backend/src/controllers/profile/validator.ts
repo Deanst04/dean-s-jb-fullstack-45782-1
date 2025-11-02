@@ -10,3 +10,9 @@ export const updatePostValidator = newPostValidator
 export const getPostValidator = Joi.object({
     id: Joi.string().uuid()
 })
+
+export const newPostImageValidator = Joi.object({
+    image: Joi.object({
+        mimetype: Joi.string().valid('image/jpeg', 'image/png')
+    }).unknown(true).optional()
+})
