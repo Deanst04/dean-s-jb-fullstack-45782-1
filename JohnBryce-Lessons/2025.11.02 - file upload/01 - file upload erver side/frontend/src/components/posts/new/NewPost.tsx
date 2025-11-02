@@ -19,6 +19,7 @@ export default function NewPost() {
     const profileService = useService(ProfileService)
 
     async function submit(draft: PostDraft) {
+        draft.image = (draft.image as unknown as FileList )[0]
         try {
             setIsSubmitting(true)
             const post = await profileService.newPost(draft)
@@ -55,6 +56,7 @@ export default function NewPost() {
                         message: 'Post content must be at least 20 characters long'
                     }
                 })}></textarea>
+                <input type="file" {...register('image')} />
                 <div className='formError'>{formState.errors.body?.message}</div>
                 <SpinnerButton
                     buttonText='Add Post'

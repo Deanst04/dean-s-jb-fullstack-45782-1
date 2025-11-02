@@ -15,7 +15,11 @@ export default class ProfileService extends AuthAware {
     }
 
     async newPost(draft: PostDraft): Promise<Post> {
-        const response = await this.axiosInstance.post<Post>(`/profile`, draft)
+        const response = await this.axiosInstance.post<Post>(`/profile`, draft, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
         return response.data
     }
 
