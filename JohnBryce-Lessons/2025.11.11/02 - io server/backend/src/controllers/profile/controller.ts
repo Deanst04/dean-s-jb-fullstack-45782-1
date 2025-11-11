@@ -4,6 +4,7 @@ import User from "../../models/User";
 import Comment from "../../models/Comment";
 import postIncludes from "../common/post-includes";
 import socket from "../../io/io";
+import SocketMessages from "socket-enums-deanst";
 
 
 export async function getProfile(req: Request, res: Response, next: NextFunction) {
@@ -57,7 +58,7 @@ export async function createPost(req: Request, res: Response, next: NextFunction
         res.json(newPost)
 
         // here i want to send the io server a message
-        socket.emit('new-post', {
+        socket.emit(SocketMessages.NewPost, {
             from: req.get('x-client-id') || 'stam',
             post: newPost
         })

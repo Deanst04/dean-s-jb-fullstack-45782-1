@@ -9,6 +9,7 @@ import { newFollower } from "../../redux/followers-slice";
 import { follow } from "../../redux/following-slice";
 import { v4 } from "uuid";
 import SocketDispatcherContext from "./SocketDispatcherContext";
+import SocketMessages from "socket-enums-deanst";
 
 export default function SocketDispatcher(props: PropsWithChildren) {
 
@@ -25,12 +26,12 @@ export default function SocketDispatcher(props: PropsWithChildren) {
 
             if (payload.from === clientId) return;
             switch (eventName) {
-                case 'new-post':
+                case SocketMessages.NewPost:
                     if ((payload.post as Post).user.id === userId) {
                         dispatch(newPost(payload.post as Post))
                     }
                     break;
-                case 'new-follow':
+                case SocketMessages.NewFollow:
                     if (userId === (payload.followee as User).id) {
                         dispatch(newFollower((payload.follower as User)))
                     } else if (userId === (payload.follower as User).id) {

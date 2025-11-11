@@ -44,7 +44,7 @@ services:
 
 # docker run --name localstack -d --rm -it -p 4566:4566 -p 4510-4559:4510-4559 localstack/localstack
   localstack:
-    container_name: weezer-localstack
+    container_name: weezer-localstack-compose
     ports:
       - 4566:4566
       - 4510-4559:4510-4559
@@ -52,6 +52,11 @@ services:
     volumes:
       - s3localdata:/var/lib/localstack
       - weezerdata:/var/lib/mysql
+  io:
+    container_name: weezer-io-compose
+    ports:
+      - "3022:3004"
+    build: ./io
 
 volumes:
   weezerdata:
