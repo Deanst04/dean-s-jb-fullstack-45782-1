@@ -41,7 +41,7 @@ export default function EditPost() {
             }
         })()
 
-    }, [dispatch, id, post, profileService, reset])
+    }, [dispatch, id, post, reset])
 
     async function submit(draft: PostDraft) {
         try {
@@ -83,7 +83,7 @@ export default function EditPost() {
                             message: 'Post content must be at least 20 characters long'
                         }
                     })}></textarea>
-                    <img src={imgSrc} {...register('image')} />
+                    <img src={imgSrc} />
                     <div className='formError'>{formState.errors.body?.message}</div>
                     <SpinnerButton
                         buttonText='Update Post'
