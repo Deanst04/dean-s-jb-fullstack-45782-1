@@ -33,6 +33,12 @@ export default async function fileUploader(req: Request, res: Response, next: Ne
         }
     })
 
+    // smaller the pic to 400px
+
+    // save it in s3 with _400 suffix
+    // original pic: 123456.jpg
+    // save as: 123456_400.jpg
+
     const result = await upload.done()
     const url = new URL(result.Location)
     req.imageUrl = url.pathname
