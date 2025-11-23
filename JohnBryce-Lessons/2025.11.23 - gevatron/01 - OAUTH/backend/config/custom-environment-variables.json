@@ -18,5 +18,8 @@
     },
     "stripe": {
         "secret": "STRIPE_SECRET"
+    },
+    "openai": {
+        "secret": "OPENAI_SECRET"
     }
 }

@@ -8,6 +8,7 @@ import feedRouter from './routers/feed'
 import followsRouter from './routers/follows'
 import commentsRouter from './routers/comments'
 import stripeRouter from './routers/stripe'
+import openaiRouter from './routers/openai'
 import config from 'config'
 import sequelize from './db/sequelize';
 import enforceAuth from './middlewares/enforce-auth';
@@ -30,8 +31,9 @@ app.use(fileUpload())
 
 // load routers
 app.use('/auth', authRouter)
-app.use(enforceAuth)
 app.use('/stripe', stripeRouter)
+app.use(enforceAuth)
+app.use('/openai', openaiRouter)
 app.use('/profile', profileRouter)
 app.use('/feed', feedRouter)
 app.use('/follows', followsRouter)

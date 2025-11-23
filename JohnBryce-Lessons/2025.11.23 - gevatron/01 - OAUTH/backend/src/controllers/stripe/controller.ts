@@ -25,3 +25,10 @@ export async function createPaymentIntent(req: Request, res: Response, next: Nex
         next(e)
     }
 }
+
+export async function webhook(req: Request, res: Response, next: NextFunction) {
+    console.log(req.body)
+    // verify the webhook
+
+    // do whatever i want, in this case, i will tag a user record as a paying user
+}

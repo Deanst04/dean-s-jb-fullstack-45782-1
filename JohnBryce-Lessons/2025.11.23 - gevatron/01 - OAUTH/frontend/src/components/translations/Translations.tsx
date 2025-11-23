@@ -1,12 +1,21 @@
-import { useState } from 'react';
-import './Translations.css';
+import { useEffect, useState } from 'react'
+import './Translations.css'
 import { loadStripe } from '@stripe/stripe-js'
-import { Elements, PaymentElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import axios from 'axios';
+import { Elements, PaymentElement, useElements, useStripe } from '@stripe/react-stripe-js'
+import axios from 'axios'
+import { useParams, useSearchParams } from 'react-router-dom'
 
 export default function Translations() {
 
     const [isPaying, setIsPaying] = useState<boolean>(false)
+    const [searchParams] = useSearchParams()
+
+    useEffect(() => {
+        if(searchParams.get('payment_intent')) {
+            // post to our server and modify the user record to a paying user
+            setIsPaying(true)
+        }
+    }, [useParams])
 
     const stripePromise = loadStripe('pk_test_51SWZY4Bw7GmmRmyUG1Rm2KX4YV15TjxiPWhImDRiNo9s2L4dPusbAuNqNXwFCVl4MXUO2Dn89UJsNYmbPOlmzQff00iuvDASq5')
 
@@ -36,6 +45,7 @@ function CheckOutForm() {
 
     const [errorMassage, setErrorMassage] = useState<string>('')
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
     async function handleSubmit(event: {preventDefault: Function}) {
         event.preventDefault()
 
@@ -48,17 +58,19 @@ function CheckOutForm() {
         }
 
         const response = await axios.post('http://localhost:3000/stripe/payment-intent')
-        const { paymentIntent, clientSecret } = response.data
+        const { paymentIntent } = response.data
 
-        const { error } = await stripe!.confirmPayment({ 
+        console.log(paymentIntent)
+
+        const stripeResponse = await stripe!.confirmPayment({ 
             elements: elements!,
-            clientSecret,
+            clientSecret: paymentIntent.client_secret,
             confirmParams: {
-                return_url: 'http://localhost:5173/payment-complete'
+                return_url: 'http://localhost:5173/translations'
             }
         })
-        if(error) {
-            setErrorMassage(error.message!)
+        if(stripeResponse.error) {
+            setErrorMassage(stripeResponse.error.message!)
         }
 
 
