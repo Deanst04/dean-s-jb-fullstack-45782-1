@@ -26,6 +26,6 @@ router.get('/google/callback',
 
     const jwt = sign(req.user, jwtSecret)
 
-    res.redirect(`http://localhost:5173?jwt=${jwt  }`);
+    res.redirect(`http://localhost:5173?jwt=${jwt}`);
   });
 export default router

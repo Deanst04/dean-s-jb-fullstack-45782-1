@@ -3,6 +3,7 @@ import Profile from "../../posts/profile/Profile";
 import Feed from "../../posts/feed/Feed";
 import NotFound from "../not-found/NotFound";
 import EditPost from "../../posts/edit/EditPost";
+import Translations from "../../translations/Translations";
 
 export default function Main() {
     return (
@@ -12,6 +13,7 @@ export default function Main() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/profile/edit/:id" element={<EditPost />} />
             <Route path="/feed" element={<Feed />} />
+            <Route path="/translations" element={<Translations />} />
             <Route path="*" element={<NotFound />} />
         </Routes>
     );

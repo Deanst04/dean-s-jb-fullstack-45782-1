@@ -32,5 +32,8 @@
     "google": {
         "clientId": "319696600452-nratohdjc9pgj7qu6hflvj0h0j1j9r1m.apps.googleusercontent.com",
         "clientSecret": ""
+    },
+    "stripe": {
+        "secret": ""
     }
 }

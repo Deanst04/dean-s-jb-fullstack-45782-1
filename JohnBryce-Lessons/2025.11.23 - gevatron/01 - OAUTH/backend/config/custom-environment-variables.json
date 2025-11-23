@@ -15,5 +15,8 @@
     },
     "google": {
         "clientSecret": "GOOGLE_CLIENT_SECRET"
+    },
+    "stripe": {
+        "secret": "STRIPE_SECRET"
     }
 }
