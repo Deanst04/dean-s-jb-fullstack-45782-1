@@ -2,7 +2,7 @@ import count
 from icecream import ic
 
 def welcomeMsg():
-    print('welcome')
+    print('welcome!')
 
 if __name__ == '__main__':
     welcomeMsg()
