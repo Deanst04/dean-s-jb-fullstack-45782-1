@@ -3,20 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products Viewer</title>
+    <title>Products Manager</title>
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <style>
+        table {
+            width: 300px;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        #add-form {
+            margin-top: 20px;
+        }
+        input {
+            margin: 5px 0;
+            display: block;
+        }
+    </style>
 </head>
 <body>
 
-    <h1>Products</h1>
+    <h1>Products Manager</h1>
 
     <button id="load-btn">Load Products</button>
 
-    <ul id="products-list"></ul>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price ($)</th>
+            </tr>
+        </thead>
+        <tbody id="products-body"></tbody>
+    </table>
+
+    <h2>Add Product</h2>
+    <form id="add-form">
+        <input type="text" id="name" placeholder="Product Name" />
+        <input type="number" id="price" placeholder="Product Price" />
+        <button type="submit">Add Product</button>
+    </form>
 
     <script>
-        const MYSERVER = 'http://127.0.0.1:5000'
-        axios.get(MYSERVER).then(res => console.table(res))
+        const SERVER_GET = "http://127.0.0.1:5000/";
+        const SERVER_POST = "http://127.0.0.1:5000/add";
+
+        const loadBtn = document.getElementById("load-btn");
+        const tableBody = document.getElementById("products-body");
+        const form = document.getElementById("add-form");
+
+        // Function to load and display products
+        async function loadProducts() {
+            const res = await axios.get(SERVER_GET);
+            const products = res.data;
+
+            tableBody.innerHTML = products
+                .map(p => `<tr><td>${p.name}</td><td>${p.price}</td></tr>`)
+                .join("");
+        }
+
+        // Load products when clicking the button
+        loadBtn.onclick = loadProducts;
+
+        // Form submit handler (add new product)
+        form.onsubmit = async (event) => {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const price = document.getElementById("price").value;
+
+            if (!name || !price) {
+                alert("Please enter name and price");
+                return;
+            }
+
+            await axios.post(SERVER_POST, { name, price });
+
+            form.reset();      // Clear form
+            loadProducts();    // Refresh table
+        };
     </script>
 
 </body>
