@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Articles App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Articles Management</h1>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-category="news">News</button>
+            <button class="tab-btn" data-category="sport">Sport</button>
+            <button class="tab-btn" data-category="economic">Economic</button>
+        </div>
+
+        <div class="form-section">
+            <h2>Create Article</h2>
+            <form id="articleForm">
+                <input type="text" id="title" placeholder="Title" required>
+                <input type="text" id="author" placeholder="Author (optional)">
+                <textarea id="content" placeholder="Content" rows="4" required></textarea>
+                <button type="submit">Create Article</button>
+            </form>
+        </div>
+
+        <div class="articles-section">
+            <h2>Articles</h2>
+            <div id="articlesList"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
