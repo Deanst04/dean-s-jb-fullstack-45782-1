@@ -10,4 +10,9 @@ def hello(req):
 
 @api_view(['GET'])
 def index(req):
-  return Response('index')
+    return Response("index")
+
+
+@api_view(["GET"])
+def test(req):
+    return Response({"user_name": "dean", "age": 21})

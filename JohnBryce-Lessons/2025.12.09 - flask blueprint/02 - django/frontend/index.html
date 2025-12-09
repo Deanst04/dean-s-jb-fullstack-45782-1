@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Django API Demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .container {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        padding: 40px;
+        max-width: 600px;
+        width: 100%;
+        animation: slideIn 0.5s ease-out;
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 10px;
+        text-align: center;
+        font-size: 2.5rem;
+      }
+
+      .subtitle {
+        color: #666;
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 1rem;
+      }
+
+      .api-url {
+        background: #f5f5f5;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        font-family: "Courier New", monospace;
+        font-size: 0.9rem;
+        color: #667eea;
+        word-break: break-all;
+        border-left: 4px solid #667eea;
+      }
+
+      button {
+        width: 100%;
+        padding: 15px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+        margin-bottom: 20px;
+      }
+
+      button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+      }
+
+      button:active {
+        transform: translateY(0);
+      }
+
+      button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      .result-container {
+        margin-top: 20px;
+      }
+
+      .loading {
+        text-align: center;
+        padding: 20px;
+        color: #667eea;
+        font-size: 1.1rem;
+      }
+
+      .spinner {
+        border: 3px solid #f3f3f3;
+        border-top: 3px solid #667eea;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 20px auto;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .data-card {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 15px;
+        padding: 30px;
+        color: white;
+        animation: fadeIn 0.5s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .data-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        margin-bottom: 15px;
+        backdrop-filter: blur(10px);
+      }
+
+      .data-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .data-label {
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+      }
+
+      .data-value {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .error {
+        background: #ff6b6b;
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        animation: shake 0.5s ease-out;
+      }
+
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-10px);
+        }
+        75% {
+          transform: translateX(10px);
+        }
+      }
+
+      .error-title {
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+
+      .json-raw {
+        background: #2d2d2d;
+        color: #f8f8f2;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+        overflow-x: auto;
+        font-family: "Courier New", monospace;
+        font-size: 0.9rem;
+      }
+
+      .status-badge {
+        display: inline-block;
+        padding: 5px 15px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.2);
+        font-size: 0.8rem;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🚀 Django API Demo</h1>
+      <p class="subtitle">Fetch data using Axios and CORS</p>
+
+      <div class="api-url">
+        <strong>API Endpoint:</strong> http://127.0.0.1:8000/test
+      </div>
+
+      <button id="fetchBtn" onclick="fetchData()">Fetch Data from API</button>
+
+      <div id="result" class="result-container"></div>
+    </div>
+
+    <script>
+      async function fetchData() {
+        const resultDiv = document.getElementById("result");
+        const fetchBtn = document.getElementById("fetchBtn");
+
+        // Show loading state
+        fetchBtn.disabled = true;
+        resultDiv.innerHTML = `
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Fetching data from server...</p>
+                </div>
+            `;
+
+        try {
+          // Make GET request using Axios
+          const response = await axios.get("http://127.0.0.1:8000/test", {
+            headers: {
+              Accept: "application/json",
+            },
+            timeout: 5000, // 5 second timeout
+          });
+
+          // Display the data
+          displayData(response.data);
+        } catch (error) {
+          // Handle errors
+          displayError(error);
+        } finally {
+          fetchBtn.disabled = false;
+        }
+      }
+
+      function displayData(data) {
+        const resultDiv = document.getElementById("result");
+
+        resultDiv.innerHTML = `
+                <div class="data-card">
+                    <h2 style="margin-bottom: 20px; text-align: center;">✓ Data Retrieved Successfully</h2>
+
+                    <div class="data-item">
+                        <span class="data-label">User Name</span>
+                        <span class="data-value">${
+                          data.user_name || "N/A"
+                        }</span>
+                    </div>
+
+                    <div class="data-item">
+                        <span class="data-label">Age</span>
+                        <span class="data-value">${data.age || "N/A"}</span>
+                    </div>
+
+                    <div style="text-align: center;">
+                        <span class="status-badge">Status: Success</span>
+                    </div>
+                </div>
+
+                <div class="json-raw">
+                    <strong>Raw JSON Response:</strong>
+                    <pre>${JSON.stringify(data, null, 2)}</pre>
+                </div>
+            `;
+      }
+
+      function displayError(error) {
+        const resultDiv = document.getElementById("result");
+
+        let errorMessage = "An unknown error occurred";
+        let errorDetails = "";
+
+        if (error.response) {
+          // Server responded with error status
+          errorMessage = `Server Error: ${error.response.status}`;
+          errorDetails =
+            error.response.data?.message || JSON.stringify(error.response.data);
+        } else if (error.request) {
+          // Request made but no response
+          errorMessage = "No Response from Server";
+          errorDetails =
+            "Make sure the Django server is running at http://127.0.0.1:8000 and CORS is properly configured.";
+        } else {
+          // Error in request setup
+          errorMessage = "Request Error";
+          errorDetails = error.message;
+        }
+
+        resultDiv.innerHTML = `
+                <div class="error">
+                    <div class="error-title">❌ ${errorMessage}</div>
+                    <p>${errorDetails}</p>
+                </div>
+            `;
+      }
+
+      // Optional: Fetch data automatically on page load
+      // window.addEventListener('load', fetchData);
+    </script>
+  </body>
+</html>
