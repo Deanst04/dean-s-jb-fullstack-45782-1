@@ -1,0 +1,100 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        'cyber-black': '#0a0a0a',
+        'cyber-dark': '#111111',
+        'cyber-gray': '#1a1a1a',
+        'neon-green': '#00ff00',
+        'neon-green-dim': '#00cc00',
+        'neon-red': '#ff0040',
+        'neon-blue': '#00d4ff',
+        'neon-cyan': '#00ffff',
+        'neon-purple': '#bf00ff',
+        'neon-yellow': '#ffff00',
+      },
+      fontFamily: {
+        'mono': ['JetBrains Mono', 'Fira Code', 'Consolas', 'monospace'],
+        'display': ['Orbitron', 'sans-serif'],
+      },
+      boxShadow: {
+        'neon-green': '0 0 5px #00ff00, 0 0 20px #00ff00, 0 0 40px #00ff00',
+        'neon-green-sm': '0 0 5px #00ff00, 0 0 10px #00ff00',
+        'neon-red': '0 0 5px #ff0040, 0 0 20px #ff0040, 0 0 40px #ff0040',
+        'neon-blue': '0 0 5px #00d4ff, 0 0 20px #00d4ff',
+      },
+      animation: {
+        'pulse-neon': 'pulse-neon 2s ease-in-out infinite',
+        'scan-line': 'scan-line 4s linear infinite',
+        'glitch': 'glitch 0.5s infinite',
+        'flicker': 'flicker 0.15s infinite',
+        'typing': 'typing 3s steps(30) infinite',
+        'blink': 'blink 1s step-end infinite',
+        'float': 'float 3s ease-in-out infinite',
+        'matrix-rain': 'matrix-rain 20s linear infinite',
+      },
+      keyframes: {
+        'pulse-neon': {
+          '0%, 100%': { opacity: '1', filter: 'brightness(1)' },
+          '50%': { opacity: '0.8', filter: 'brightness(1.2)' },
+        },
+        'scan-line': {
+          '0%': { transform: 'translateY(-100%)' },
+          '100%': { transform: 'translateY(100vh)' },
+        },
+        'glitch': {
+          '0%': { transform: 'translate(0)' },
+          '20%': { transform: 'translate(-2px, 2px)' },
+          '40%': { transform: 'translate(-2px, -2px)' },
+          '60%': { transform: 'translate(2px, 2px)' },
+          '80%': { transform: 'translate(2px, -2px)' },
+          '100%': { transform: 'translate(0)' },
+        },
+        'flicker': {
+          '0%': { opacity: '0.27' },
+          '5%': { opacity: '0.34' },
+          '10%': { opacity: '0.27' },
+          '15%': { opacity: '0.34' },
+          '20%': { opacity: '0.27' },
+          '25%': { opacity: '0.34' },
+          '30%': { opacity: '0.27' },
+          '35%': { opacity: '0.34' },
+          '40%': { opacity: '0.27' },
+          '45%': { opacity: '0.34' },
+          '50%': { opacity: '0.27' },
+          '55%': { opacity: '0.3' },
+          '60%': { opacity: '0.27' },
+          '65%': { opacity: '0.34' },
+          '70%': { opacity: '0.27' },
+          '75%': { opacity: '0.34' },
+          '80%': { opacity: '0.27' },
+          '85%': { opacity: '0.34' },
+          '90%': { opacity: '0.27' },
+          '95%': { opacity: '0.34' },
+          '100%': { opacity: '0.27' },
+        },
+        'typing': {
+          'from': { width: '0' },
+          'to': { width: '100%' },
+        },
+        'blink': {
+          '50%': { borderColor: 'transparent' },
+        },
+        'float': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        'matrix-rain': {
+          '0%': { backgroundPosition: '0% 0%' },
+          '100%': { backgroundPosition: '0% 100%' },
+        },
+      },
+    },
+  },
+  plugins: [],
+}
