@@ -2,15 +2,15 @@ import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing-module';
-import { App } from './app';
-import { List } from './list/list';
-import { Home } from './home/home';
-import { Profile } from './profile/profile';
-import { Products } from './products/products';
-import { Fruits } from './fruits/fruits';
-import { Vegetables } from './vegetables/vegetables';
-import { Meat } from './meat/meat';
-import { Dairy } from './dairy/dairy';
+import { App } from './components/app/app';
+import { List } from './components/list/list';
+import { Home } from './components/home/home';
+import { Profile } from './components/profile/profile';
+import { Products } from './components/products/products';
+import { Fruits } from './components/products/fruits/fruits';
+import { Vegetables } from './components/products/vegetables/vegetables';
+import { Meat } from './components/products/meat/meat';
+import { Dairy } from './components/products/dairy/dairy';
 
 @NgModule({
   declarations: [
