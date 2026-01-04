@@ -1,0 +1,95 @@
+<nav class="sticky top-0 z-50 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 shadow-2xl shadow-slate-900/50 px-4 sm:px-6 lg:px-8 py-4">
+  <div class="max-w-7xl mx-auto flex items-center justify-between sm:justify-center gap-2 sm:gap-4">
+    
+    <!-- Logo/Brand -->
+    <span class="hidden sm:flex items-center gap-2 mr-8 text-white font-bold text-lg">
+      <span class="relative w-10 h-10 flex items-center justify-center 
+                    rounded-xl bg-white/5 backdrop-blur-sm border border-white/10
+                    shadow-lg shadow-red-500/20
+                    hover:shadow-xl hover:shadow-red-500/30 hover:bg-white/10 hover:-translate-y-0.5 hover:brightness-110
+                    transition-all duration-300 ease-out cursor-pointer">
+        <svg viewBox="0 0 256 272" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
+          <path d="M.1 45.522L125.908.697l129.196 44.028-20.919 166.45-108.277 59.966-106.583-59.169L.1 45.522z" fill="#E23237"/>
+          <path d="M255.104 44.725L125.908.697v270.444l108.277-59.866 20.919-166.55z" fill="#B52E31"/>
+          <path d="M126.107 32.274L47.714 206.693l29.285-.498 15.739-39.347h70.325l17.233 39.845 27.99.498-82.179-174.917zm.2 55.882l26.496 55.383h-49.806l23.31-55.383z" fill="#FFF"/>
+        </svg>
+      </span>
+      <span class="bg-gradient-to-r from-red-400 to-red-500 bg-clip-text text-transparent">
+        MyApp
+      </span>
+    </span>
+
+    <a
+      routerLink="/home"
+      routerLinkActive="!bg-white/20 ring-2 ring-cyan-400/50 text-white"
+      class="px-5 sm:px-6 py-2.5 rounded-full text-sm font-medium text-slate-300 
+             bg-white/5 backdrop-blur-sm border border-white/10
+             hover:bg-white/15 hover:text-white hover:scale-105 hover:border-white/20
+             hover:shadow-lg hover:shadow-cyan-500/20
+             focus:outline-none focus:ring-2 focus:ring-cyan-400/50 focus:bg-white/15
+             active:scale-95
+             transition-all duration-300 ease-out
+             group"
+    >
+      <span class="flex items-center gap-2">
+        <span class="text-base group-hover:animate-bounce">🏠</span>
+        Home
+      </span>
+    </a>
+    <a
+      routerLink="/list"
+      routerLinkActive="!bg-white/20 ring-2 ring-cyan-400/50 text-white"
+      class="px-5 sm:px-6 py-2.5 rounded-full text-sm font-medium text-slate-300 
+             bg-white/5 backdrop-blur-sm border border-white/10
+             hover:bg-white/15 hover:text-white hover:scale-105 hover:border-white/20
+             hover:shadow-lg hover:shadow-amber-500/20
+             focus:outline-none focus:ring-2 focus:ring-cyan-400/50 focus:bg-white/15
+             active:scale-95
+             transition-all duration-300 ease-out
+             group"
+    >
+      <span class="flex items-center gap-2">
+        <span class="text-base group-hover:animate-bounce">📋</span>
+        List
+      </span>
+    </a>
+    <a
+      routerLink="/profile"
+      routerLinkActive="!bg-white/20 ring-2 ring-cyan-400/50 text-white"
+      class="px-5 sm:px-6 py-2.5 rounded-full text-sm font-medium text-slate-300 
+             bg-white/5 backdrop-blur-sm border border-white/10
+             hover:bg-white/15 hover:text-white hover:scale-105 hover:border-white/20
+             hover:shadow-lg hover:shadow-purple-500/20
+             focus:outline-none focus:ring-2 focus:ring-cyan-400/50 focus:bg-white/15
+             active:scale-95
+             transition-all duration-300 ease-out
+             group"
+    >
+      <span class="flex items-center gap-2">
+        <span class="text-base group-hover:animate-bounce">👤</span>
+        Profile
+      </span>
+    </a>
+    <a
+      routerLink="/products"
+      routerLinkActive="!bg-white/20 ring-2 ring-cyan-400/50 text-white"
+      class="px-5 sm:px-6 py-2.5 rounded-full text-sm font-medium text-slate-300 
+             bg-white/5 backdrop-blur-sm border border-white/10
+             hover:bg-white/15 hover:text-white hover:scale-105 hover:border-white/20
+             hover:shadow-lg hover:shadow-emerald-500/20
+             focus:outline-none focus:ring-2 focus:ring-cyan-400/50 focus:bg-white/15
+             active:scale-95
+             transition-all duration-300 ease-out
+             group"
+    >
+      <span class="flex items-center gap-2">
+        <span class="text-base group-hover:animate-bounce">🛒</span>
+        Products
+      </span>
+    </a>
+  </div>
+</nav>
+
+<main class="min-h-screen bg-gradient-to-br from-slate-50 via-slate-100 to-slate-200 relative overflow-hidden">
+  <router-outlet></router-outlet>
+</main>

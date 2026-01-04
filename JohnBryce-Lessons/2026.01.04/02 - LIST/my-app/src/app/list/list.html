@@ -1,0 +1,157 @@
+<div class="min-h-screen py-8 sm:py-12 px-4 sm:px-6 lg:px-8 flex items-start justify-center">
+  <div class="w-full max-w-lg bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 overflow-hidden animate-fade-in-up">
+    
+    <!-- Header -->
+    <div class="bg-gradient-to-r from-amber-50 to-orange-50 px-6 sm:px-8 py-6 border-b border-slate-100">
+      <h1 class="text-2xl sm:text-3xl font-bold text-slate-800 tracking-tight flex items-center gap-2">
+        <span class="animate-float inline-block">🍎</span> 
+        Fruit List
+      </h1>
+      <p class="mt-1 text-slate-500 text-sm sm:text-base">
+        Pick your favorite fruits
+      </p>
+    </div>
+
+    <!-- Fruit List -->
+    <div class="px-6 sm:px-8 py-6">
+      <ol class="space-y-0 rounded-xl overflow-hidden border border-slate-200">
+        <li 
+          *ngFor="let fruit of fruits; let i = index"
+          class="px-4 py-3 text-slate-700 font-medium flex items-center gap-3 
+                 transition-all duration-300 ease-out cursor-pointer
+                 hover:bg-amber-50 hover:pl-6 hover:shadow-inner
+                 group"
+          [ngClass]="{ 'bg-slate-50/70': i % 2 === 0, 'bg-white': i % 2 === 1 }"
+          [style.animation-delay.ms]="i * 50"
+        >
+          <span class="flex items-center justify-center w-7 h-7 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-xs font-bold shadow-sm
+                       transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12">
+            {{ i + 1 }}
+          </span>
+          <span class="text-base transition-all duration-300 group-hover:text-amber-700 group-hover:font-semibold">
+            {{ fruit }}
+          </span>
+          <span class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-amber-500">
+            ←
+          </span>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Divider -->
+    <div class="px-6 sm:px-8">
+      <div class="h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+    </div>
+
+    <!-- Login Section -->
+    <div class="px-6 sm:px-8 py-6 space-y-4">
+      
+      <!-- Status Banner - BIG & NOTICEABLE -->
+      <div 
+        class="rounded-xl p-5 text-center transition-[background,box-shadow,border] duration-300 ease-out"
+        [ngClass]="{
+          'bg-gradient-to-r from-emerald-500 to-green-500 shadow-lg shadow-emerald-200': isLoggedIn,
+          'bg-gradient-to-r from-rose-100 to-red-100 border-2 border-rose-200': !isLoggedIn
+        }"
+      >
+        <div class="flex flex-col items-center justify-center gap-2">
+          <!-- Icon -->
+          <div 
+            class="text-4xl transition-[transform,opacity] duration-300 ease-out"
+          >{{ isLoggedIn ? '✅' : '🔒' }}</div>
+          
+          <!-- Title -->
+          <div class="text-xl font-bold transition-[color,transform,opacity] duration-300 ease-out"
+               [ngClass]="{
+                 'text-white': isLoggedIn,
+                 'text-rose-700': !isLoggedIn
+               }">{{ isLoggedIn ? "You're logged in!" : 'You are currently logged out' }}</div>
+          
+          <!-- Subtitle -->
+          <div class="text-sm font-medium transition-[color,transform,opacity] duration-300 ease-out"
+               [ngClass]="{
+                 'text-emerald-900': isLoggedIn,
+                 'text-rose-600': !isLoggedIn
+               }">{{ isLoggedIn ? 'Your dashboard is now fully unlocked' : 'Log in to unlock your dashboard' }}</div>
+          
+          <!-- Micro-copy -->
+          <div class="text-xs mt-1 transition-[color,transform,opacity] duration-300 ease-out"
+               [ngClass]="{
+                 'text-emerald-800': isLoggedIn,
+                 'text-rose-400': !isLoggedIn
+               }">{{ isLoggedIn ? 'Enjoy your personalized workspace' : 'Your personal features are temporarily disabled' }}</div>
+        </div>
+        
+        <!-- Indicator dots -->
+        <div 
+          class="flex justify-center gap-1.5 mt-3 transition-opacity duration-300 ease-out"
+          [ngClass]="{ 'opacity-100': isLoggedIn, 'opacity-0 h-0 mt-0 overflow-hidden': !isLoggedIn }"
+        >
+          <span class="w-2 h-2 rounded-full bg-white/60"></span>
+          <span class="w-2 h-2 rounded-full bg-white/60"></span>
+          <span class="w-2 h-2 rounded-full bg-white/60"></span>
+        </div>
+      </div>
+
+      <!-- Login/Logout Button - SIMPLIFIED -->
+      <button 
+        *ngIf="isLoggedIn"
+        (click)="toggleLogin()"
+        class="w-full py-4 px-8 rounded-full text-xl font-bold text-white 
+               bg-gradient-to-r from-rose-500 to-red-600 
+               shadow-lg shadow-rose-300
+               transition-all duration-300 ease-out
+               hover:from-rose-600 hover:to-red-700 hover:scale-[1.02] hover:shadow-xl hover:-translate-y-1
+               focus:outline-none focus:ring-4 focus:ring-red-300 focus:ring-offset-2
+               active:scale-[0.98] active:translate-y-0"
+      >
+        🚪 Log out
+      </button>
+
+      <button 
+        *ngIf="!isLoggedIn"
+        (click)="toggleLogin()"
+        class="w-full py-4 px-8 rounded-full text-xl font-bold text-white 
+               bg-gradient-to-r from-emerald-500 to-green-600 
+               shadow-lg shadow-emerald-300
+               transition-all duration-300 ease-out
+               hover:from-emerald-600 hover:to-green-700 hover:scale-[1.02] hover:shadow-xl hover:-translate-y-1
+               focus:outline-none focus:ring-4 focus:ring-green-300 focus:ring-offset-2
+               active:scale-[0.98] active:translate-y-0"
+      >
+        🔐 Log in to continue
+      </button>
+    </div>
+
+    <!-- Divider -->
+    <div class="px-6 sm:px-8">
+      <div class="h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+    </div>
+
+    <!-- Counter Section -->
+    <div class="px-6 sm:px-8 py-6 space-y-4">
+      <button
+        (click)="increaseCounter()"
+        class="w-full py-4 px-6 rounded-xl text-lg font-bold
+               bg-gradient-to-br from-slate-100 to-slate-200 text-slate-700 
+               border-2 border-slate-300
+               hover:from-indigo-100 hover:to-purple-100 hover:border-indigo-300 hover:text-indigo-700
+               hover:shadow-lg hover:-translate-y-0.5
+               focus:outline-none focus:ring-4 focus:ring-indigo-200
+               active:translate-y-0 active:shadow-inner
+               transition-all duration-200 ease-out"
+      >
+        👆 Click me!
+      </button>
+      
+      <!-- Counter Display -->
+      <div class="flex justify-center">
+        <div class="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-slate-100 to-slate-50 rounded-2xl border border-slate-200 shadow-inner">
+          <span class="text-slate-500 text-sm font-medium">Click count:</span>
+          <span class="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 tabular-nums">{{ counter }}</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
