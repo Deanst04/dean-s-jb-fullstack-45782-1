@@ -1,0 +1,267 @@
+{
+  "timestamp": "2026-01-06T13:22:49.020Z",
+  "pages": {
+    "/": {
+      "desktop": {
+        "cls": 0,
+        "lcp": 32,
+        "fcp": 32,
+        "ttfb": 1,
+        "tti": 5,
+        "domSize": 186,
+        "jsHeapSize": 18.41,
+        "totalJsSize": 5
+      },
+      "mobile": {
+        "cls": 0,
+        "lcp": 24,
+        "fcp": 24,
+        "ttfb": 1,
+        "tti": 3,
+        "domSize": 186,
+        "jsHeapSize": 18.41,
+        "totalJsSize": 5
+      }
+    },
+    "/login": {
+      "desktop": {
+        "cls": 0,
+        "lcp": 380,
+        "fcp": 36,
+        "ttfb": 1,
+        "tti": 5,
+        "domSize": 249,
+        "jsHeapSize": 18.41,
+        "totalJsSize": 82
+      },
+      "mobile": {
+        "cls": 0.048,
+        "lcp": 260,
+        "fcp": 40,
+        "ttfb": 2,
+        "tti": 6,
+        "domSize": 249,
+        "jsHeapSize": 18.41,
+        "totalJsSize": 6
+      }
+    },
+    "/app/dashboard": {
+      "desktop": {
+        "cls": 0,
+        "lcp": 536,
+        "fcp": 76,
+        "ttfb": 2,
+        "tti": 8,
+        "domSize": 249,
+        "jsHeapSize": 18.41,
+        "totalJsSize": 6
+      },
+      "mobile": {
+        "cls": 0.048,
+        "lcp": 196,
+        "fcp": 36,
+        "ttfb": 2,
+        "tti": 8,
+        "domSize": 249,
+        "jsHeapSize": 18.41,
+        "totalJsSize": 6
+      }
+    },
+    "/app/products": {
+      "desktop": {
+        "cls": 0,
+        "lcp": 264,
+        "fcp": 84,
+        "ttfb": 2,
+        "tti": 8,
+        "domSize": 4897,
+        "jsHeapSize": 18.41,
+        "totalJsSize": 6
+      },
+      "mobile": {
+        "cls": 0,
+        "lcp": 276,
+        "fcp": 52,
+        "ttfb": 1,
+        "tti": 30,
+        "domSize": 4897,
+        "jsHeapSize": 18.41,
+        "totalJsSize": 6
+      }
+    },
+    "/app/products/695cfb01c79180774cd84eb9": {
+      "desktop": {
+        "cls": 0,
+        "lcp": 196,
+        "fcp": 88,
+        "ttfb": 1,
+        "tti": 28,
+        "domSize": 105,
+        "jsHeapSize": 18.41,
+        "totalJsSize": 49
+      },
+      "mobile": {
+        "cls": 0,
+        "lcp": 104,
+        "fcp": 24,
+        "ttfb": 1,
+        "tti": 5,
+        "domSize": 105,
+        "jsHeapSize": 18.41,
+        "totalJsSize": 6
+      }
+    }
+  },
+  "results": [
+    {
+      "route": "/",
+      "viewport": "desktop",
+      "screenshot": "landing-desktop.png",
+      "metrics": {
+        "cls": 0,
+        "lcp": 32,
+        "fcp": 32,
+        "ttfb": 1,
+        "tti": 5,
+        "domSize": 186,
+        "jsHeapSize": 18.41,
+        "totalJsSize": 5
+      }
+    },
+    {
+      "route": "/",
+      "viewport": "mobile",
+      "screenshot": "landing-mobile.png",
+      "metrics": {
+        "cls": 0,
+        "lcp": 24,
+        "fcp": 24,
+        "ttfb": 1,
+        "tti": 3,
+        "domSize": 186,
+        "jsHeapSize": 18.41,
+        "totalJsSize": 5
+      }
+    },
+    {
+      "route": "/login",
+      "viewport": "desktop",
+      "screenshot": "login-desktop.png",
+      "metrics": {
+        "cls": 0,
+        "lcp": 380,
+        "fcp": 36,
+        "ttfb": 1,
+        "tti": 5,
+        "domSize": 249,
+        "jsHeapSize": 18.41,
+        "totalJsSize": 82
+      }
+    },
+    {
+      "route": "/login",
+      "viewport": "mobile",
+      "screenshot": "login-mobile.png",
+      "metrics": {
+        "cls": 0.048,
+        "lcp": 260,
+        "fcp": 40,
+        "ttfb": 2,
+        "tti": 6,
+        "domSize": 249,
+        "jsHeapSize": 18.41,
+        "totalJsSize": 6
+      }
+    },
+    {
+      "route": "/app/dashboard",
+      "viewport": "desktop",
+      "screenshot": "dashboard-desktop.png",
+      "metrics": {
+        "cls": 0,
+        "lcp": 536,
+        "fcp": 76,
+        "ttfb": 2,
+        "tti": 8,
+        "domSize": 249,
+        "jsHeapSize": 18.41,
+        "totalJsSize": 6
+      }
+    },
+    {
+      "route": "/app/dashboard",
+      "viewport": "mobile",
+      "screenshot": "dashboard-mobile.png",
+      "metrics": {
+        "cls": 0.048,
+        "lcp": 196,
+        "fcp": 36,
+        "ttfb": 2,
+        "tti": 8,
+        "domSize": 249,
+        "jsHeapSize": 18.41,
+        "totalJsSize": 6
+      }
+    },
+    {
+      "route": "/app/products",
+      "viewport": "desktop",
+      "screenshot": "products-desktop.png",
+      "metrics": {
+        "cls": 0,
+        "lcp": 264,
+        "fcp": 84,
+        "ttfb": 2,
+        "tti": 8,
+        "domSize": 4897,
+        "jsHeapSize": 18.41,
+        "totalJsSize": 6
+      }
+    },
+    {
+      "route": "/app/products",
+      "viewport": "mobile",
+      "screenshot": "products-mobile.png",
+      "metrics": {
+        "cls": 0,
+        "lcp": 276,
+        "fcp": 52,
+        "ttfb": 1,
+        "tti": 30,
+        "domSize": 4897,
+        "jsHeapSize": 18.41,
+        "totalJsSize": 6
+      }
+    },
+    {
+      "route": "/app/products/695cfb01c79180774cd84eb9",
+      "viewport": "desktop",
+      "screenshot": "product-detail-desktop.png",
+      "metrics": {
+        "cls": 0,
+        "lcp": 196,
+        "fcp": 88,
+        "ttfb": 1,
+        "tti": 28,
+        "domSize": 105,
+        "jsHeapSize": 18.41,
+        "totalJsSize": 49
+      }
+    },
+    {
+      "route": "/app/products/695cfb01c79180774cd84eb9",
+      "viewport": "mobile",
+      "screenshot": "product-detail-mobile.png",
+      "metrics": {
+        "cls": 0,
+        "lcp": 104,
+        "fcp": 24,
+        "ttfb": 1,
+        "tti": 5,
+        "domSize": 105,
+        "jsHeapSize": 18.41,
+        "totalJsSize": 6
+      }
+    }
+  ]
+}

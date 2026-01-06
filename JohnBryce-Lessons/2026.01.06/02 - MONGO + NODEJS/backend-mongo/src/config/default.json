@@ -1,0 +1,13 @@
+{
+    "app": {
+        "port": 3000,
+        "host": "localhost"
+    },
+    "db": {
+        "uri": "mongodb://127.0.0.1:27017/shop_db",
+        "options": {
+            "useNewUrlParser": true,
+            "useUnifiedTopology": true
+        }
+    }
+}

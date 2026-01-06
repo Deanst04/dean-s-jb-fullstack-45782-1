@@ -1,0 +1,124 @@
+{
+  "version": "1.0.0",
+  "description": "Configuration for autonomous UX evolution loop",
+
+  "thresholds": {
+    "clsTarget": 0.1,
+    "maxDomNodes": 1500,
+    "lcpTargetMs": 2500,
+    "fcpTargetMs": 1800,
+    "ttiTargetMs": 3500,
+    "maxJsSizeKB": 500
+  },
+
+  "loop": {
+    "maxIterations": 10,
+    "pauseBetweenIterationsMs": 2000,
+    "autoApproveThreshold": 0,
+    "requireUserApproval": true
+  },
+
+  "audit": {
+    "baseUrl": "http://localhost:4200",
+    "headedMode": false,
+    "skipGemini": false,
+    "screenshotsDir": "frontend/screenshots",
+    "reportPath": "ux_report.md",
+    "fixesAppliedPath": "frontend/ux_fixes_applied.md"
+  },
+
+  "fixer": {
+    "model": "gemini",
+    "dryRun": false,
+    "createBackups": true,
+    "backupDir": "frontend/.ux-backups",
+    "maxFixesPerIteration": 5
+  },
+
+  "allowedPaths": {
+    "components": [
+      "frontend/src/app/features/**/*.ts",
+      "frontend/src/app/shared/**/*.ts",
+      "frontend/src/app/pages/**/*.ts",
+      "frontend/src/app/layouts/**/*.ts"
+    ],
+    "styles": [
+      "frontend/src/styles.css",
+      "frontend/src/app/**/*.css",
+      "frontend/tailwind.config.js"
+    ],
+    "templates": [
+      "frontend/src/app/**/*.html"
+    ],
+    "excluded": [
+      "frontend/src/app/core/services/**/*.ts",
+      "frontend/src/app/core/guards/**/*.ts",
+      "frontend/src/app/core/models/**/*.ts",
+      "frontend/src/environments/**/*.ts",
+      "frontend/src/main.ts",
+      "frontend/src/app/app.routes.ts",
+      "frontend/src/app/app.config.ts"
+    ]
+  },
+
+  "fixes": {
+    "virtualScroll": {
+      "enabled": true,
+      "itemSizeGrid": 320,
+      "itemSizeList": 88,
+      "domThreshold": 1500
+    },
+    "clsStabilization": {
+      "enabled": true,
+      "applyMinHeight": true,
+      "applyAspectRatio": true
+    },
+    "skeletonLoaders": {
+      "enabled": true,
+      "skeletonCount": 8,
+      "animationClass": "animate-pulse"
+    },
+    "glassmorphism": {
+      "enabled": true,
+      "backdropBlur": "blur-md",
+      "backgroundOpacity": "bg-white/10",
+      "borderOpacity": "border-white/20"
+    },
+    "touchTargets": {
+      "enabled": true,
+      "minSizePx": 44,
+      "applyTouchManipulation": true
+    },
+    "animations": {
+      "enabled": true,
+      "staggerDelayMs": 100,
+      "maxStaggerItems": 8
+    },
+    "performance": {
+      "trackBy": true,
+      "onPush": true,
+      "lazyImages": true
+    }
+  },
+
+  "build": {
+    "command": "npm run build",
+    "workingDir": "frontend",
+    "failOnWarning": false,
+    "timeout": 120000
+  },
+
+  "serve": {
+    "command": "npm run start",
+    "workingDir": "frontend",
+    "port": 4200,
+    "waitForReadyMs": 10000
+  },
+
+  "logging": {
+    "level": "info",
+    "colorize": true,
+    "logFile": "ai-loop.log",
+    "timestamps": true
+  }
+}

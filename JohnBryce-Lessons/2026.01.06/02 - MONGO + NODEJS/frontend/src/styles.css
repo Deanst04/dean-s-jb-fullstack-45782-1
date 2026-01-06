@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom glassmorphism utilities - Standardized for consistency */
+@layer components {
+  .glass {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20 shadow-glass;
+  }
+
+  .glass-dark {
+    @apply bg-slate-900/50 backdrop-blur-lg border border-slate-700/30 shadow-glass;
+  }
+
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20 shadow-xl rounded-2xl
+           transition-all duration-300;
+  }
+
+  .glass-card-hover {
+    @apply glass-card hover:scale-[1.02] hover:shadow-2xl hover:border-primary-400/30;
+  }
+
+  .glass-button {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20
+           transition-all duration-300 rounded-xl px-6 py-3
+           min-h-[44px] min-w-[44px] touch-manipulation;
+  }
+
+  .glass-input {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-xl
+           focus:ring-2 focus:ring-primary-500/50 focus:border-primary-400/50
+           transition-all duration-200 min-h-[44px];
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-400 via-accent-500 to-primary-400
+           bg-clip-text text-transparent;
+  }
+
+  .gradient-bg {
+    @apply bg-gradient-to-br from-primary-500 via-accent-500 to-primary-600;
+  }
+
+  /* Touch-friendly interactive elements */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px] touch-manipulation;
+  }
+
+  /* Aspect ratio containers for CLS prevention */
+  .aspect-product-image {
+    @apply aspect-[4/3] w-full;
+  }
+
+  .aspect-card-image {
+    @apply aspect-video w-full;
+  }
+}
+
+/* Base styles */
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply antialiased;
+  }
+
+  /* Light mode defaults */
+  body {
+    @apply bg-gray-50 text-slate-800;
+  }
+
+  /* Dark mode */
+  body.dark {
+    @apply bg-slate-900 text-white;
+  }
+}
+
+/* Custom scrollbar */
+@layer utilities {
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-slate-400/50 rounded-full;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-400;
+  }
+}
+
+/* Animation utilities */
+@layer utilities {
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+  .animate-delay-500 {
+    animation-delay: 500ms;
+  }
+
+  /* Fade in animations */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.4s ease-out forwards;
+  }
+
+  .animate-fade-in-down {
+    animation: fadeInDown 0.4s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* CDK Virtual Scroll styling */
+cdk-virtual-scroll-viewport {
+  @apply scrollbar-thin;
+}
+
+cdk-virtual-scroll-viewport .cdk-virtual-scroll-content-wrapper {
+  width: 100%;
+}
