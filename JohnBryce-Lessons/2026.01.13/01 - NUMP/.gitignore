@@ -1,0 +1,55 @@
+# =========================
+# Machine Learning Datasets
+# =========================
+
+# CIFAR-10
+cifar-10-batches-py/
+cifar-10-python.tar.gz
+
+# MNIST
+MNIST/
+MNIST/raw/
+
+# Generic dataset folders
+data/
+datasets/
+dataset/
+data_raw/
+
+# HuggingFace cache
+.cache/
+cache/
+huggingface/
+
+# =========================
+# PyTorch / ML artifacts
+# =========================
+
+# Model weights
+*.pth
+*.pt
+
+# Training outputs
+runs/
+checkpoints/
+logs/
+
+# =========================
+# Python / OS
+# =========================
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.env/
+.venv/
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
