@@ -1,0 +1,84 @@
+{% extends "layout.twig" %}
+
+{% block title %}Login - {{ app_name }}{% endblock %}
+
+{% block styles %}
+<style>
+    .auth-container {
+        max-width: 450px;
+        margin: 50px auto;
+    }
+
+    .auth-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .auth-header h1 {
+        color: #333;
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    .auth-header p {
+        color: #666;
+    }
+
+    .auth-footer {
+        text-align: center;
+        margin-top: 20px;
+        color: #666;
+    }
+
+    .auth-footer a {
+        color: #667eea;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .auth-footer a:hover {
+        text-decoration: underline;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="card">
+        <div class="auth-header">
+            <h1 class="animate__animated animate__bounceIn">Welcome Back</h1>
+            <p>Sign in to manage your tasks</p>
+        </div>
+
+        {% if error %}
+        <div class="alert alert-error">{{ error|raw }}</div>
+        {% endif %}
+
+        {% if success %}
+        <div class="alert alert-success">{{ success }}</div>
+        {% endif %}
+
+        <form method="POST" action="/login">
+            {{ csrf_field()|raw }}
+
+            <div class="form-group">
+                <label class="form-label" for="email">Email</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required autofocus>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="password">Password</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 15px;">
+                Sign In
+            </button>
+        </form>
+
+        <div class="auth-footer">
+            Don't have an account? <a href="/register">Sign up</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

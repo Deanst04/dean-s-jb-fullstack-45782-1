@@ -1,0 +1,66 @@
+{% extends "layout.twig" %}
+
+{% block title %}{{ task.title }} - {{ app_name }}{% endblock %}
+
+{% block content %}
+<div class="card" style="max-width: 700px; margin: 50px auto;">
+    <div style="margin-bottom: 20px;">
+        <span class="task-badge badge-priority-{{ task.priority }}" style="padding: 5px 15px; border-radius: 20px; font-size: 12px;">
+            {{ task.priority|upper }}
+        </span>
+        {% if task.done %}
+        <span style="background: #dcfce7; color: #16a34a; padding: 5px 15px; border-radius: 20px; font-size: 12px; margin-left: 10px;">
+            COMPLETED
+        </span>
+        {% endif %}
+    </div>
+
+    <h1 style="font-size: 2rem; color: #333; margin-bottom: 15px; {{ task.done ? 'text-decoration: line-through; color: #888;' : '' }}">
+        {{ task.title }}
+    </h1>
+
+    {% if task.description %}
+    <p style="color: #666; line-height: 1.6; margin-bottom: 20px;">
+        {{ task.description }}
+    </p>
+    {% endif %}
+
+    {% if task.image %}
+    <img src="/{{ task.image }}" alt="" style="max-width: 100%; border-radius: 15px; margin-bottom: 20px;">
+    {% endif %}
+
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; color: #888; font-size: 14px; padding-top: 20px; border-top: 1px solid #eee;">
+        {% if task.category %}
+        <div>
+            <strong>Category:</strong> {{ task.category }}
+        </div>
+        {% endif %}
+
+        {% if task.due_date %}
+        <div>
+            <strong>Due:</strong> {{ task.due_date|date('F j, Y') }}
+            {% if task.due_date_human %}
+            <span style="color: {{ task.due_status == 'overdue' ? '#dc2626' : '#666' }};">
+                ({{ task.due_date_human }})
+            </span>
+            {% endif %}
+        </div>
+        {% endif %}
+
+        <div>
+            <strong>Created:</strong> {{ task.created_at|date('F j, Y') }} ({{ task.created_at_human }})
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block styles %}
+<style>
+    .task-badge {
+        display: inline-block;
+    }
+    .badge-priority-high { background: #fee2e2; color: #dc2626; }
+    .badge-priority-medium { background: #fef3c7; color: #d97706; }
+    .badge-priority-low { background: #dcfce7; color: #16a34a; }
+</style>
+{% endblock %}

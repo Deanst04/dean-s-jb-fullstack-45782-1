@@ -1,0 +1,41 @@
+{
+    "name": "johnbryce/php-crud-pro",
+    "description": "Professional PHP CRUD Task Management Application",
+    "type": "project",
+    "require": {
+        "php": ">=8.1",
+        "vlucas/phpdotenv": "^5.6",
+        "monolog/monolog": "^3.5",
+        "respect/validation": "^2.3",
+        "intervention/image": "^3.0",
+        "nesbot/carbon": "^2.72",
+        "ramsey/uuid": "^4.7",
+        "cocur/slugify": "^4.5",
+        "phpmailer/phpmailer": "^6.9",
+        "firebase/php-jwt": "^6.10",
+        "fakerphp/faker": "^1.23",
+        "twig/twig": "^3.8",
+        "illuminate/database": "^10.0",
+        "illuminate/events": "^10.0",
+        "dompdf/dompdf": "^2.0",
+        "league/csv": "^9.15",
+        "twilio/sdk": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\Models\\": "models/",
+            "App\\Controllers\\": "controllers/",
+            "App\\Middleware\\": "middleware/",
+            "App\\Services\\": "services/",
+            "App\\Seeds\\": "seeds/",
+            "App\\Migrations\\": "migrations/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "scripts": {
+        "seed": "php seeds/run.php"
+    }
+}
